@@ -4,5 +4,6 @@ export interface TableDataDisplayValue {
     updated_at: string;
     tbl_type: string;
     tbl_code: string;
+    tbl_fullname?: string;
     value: string;
 }
