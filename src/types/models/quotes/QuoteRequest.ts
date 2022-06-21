@@ -1,3 +1,13 @@
+import { Club } from "./Club";
+import { Lead } from "./Lead";
+import { PostalAddress } from "./PostalAddress";
+import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
+import { QuoteRequestPurchaseOption } from "./QuoteRequestPurchaseOption";
+import { QuoteRequestReferrer } from "./QuoteRequestReferrer";
+import { QuoteRequestReferrerCategory } from "./QuoteRequestReferrerCategory";
+import { QuoteRequestVehicle } from "./QuoteRequestVehicle";
+import { StreetAddress } from "./StreetAddress";
+
 export type QuoteRequestStatus = 'new' | 'draft' | 'in-progress' | 'with-customer' | 'sold' | 'bound' | 'customer-modified' | 'closed';
 
 export type QuoteRequestSource = 'web' | 'phone' | 'show' | 'existing-customer' | 'mighway' | 'agent' | 'entry-form' | 'bularangi';
@@ -74,75 +84,6 @@ export interface QuoteRequest {
     broker_firm?: QuoteRequestUserGroup;
     club?: Club;
     lead?: Lead;
-}
-
-export interface QuoteRequestReferrer {
-    id: number;
-    name: string;
-    category_id: QuoteRequestReferrerCategory['id'];
-    category?: QuoteRequestReferrerCategory;
-}
-
-export interface QuoteRequestReferrerCategory {
-    id: number;
-    name: string;
-}
-
-export interface Club {
-    id: number;
-    name: string;
-}
-
-export interface StreetAddress {
-    id: number;
-    address: string | null;
-    unit: string | null;
-    suburb: string | null;
-    city: string | null;
-    post_code: string | null;
-}
-
-export interface PostalAddress {
-    id: number;
-    postal_line_1: string | null;
-    postal_line_2: string | null;
-    postal_line_3: string | null;
-    postal_line_4: string | null;
-}
-
-export interface Lead {
-    id: number;
-    first_name: string;
-    last_name: string;
-    email: string;
-    mobile: string;
-    status: string;
-    source: string;
-    postal_address_id: PostalAddress['id'];
-    current_insurer: string | null;
-    current_insurance_expires_at: string | null;
-    current_insurance_is_monthly: boolean;
-    vehicle_details: string | null;
-    notes: string | null;
-    import_data: string | null;
-}
-
-export interface QuoteRequestDeclaration {
-    id: number;
-    quote_request_id: QuoteRequest['id'];
-    had_incident: boolean;
-    has_demerit_points: boolean;
-    demerit_points: string | null;
-    has_lost_license: boolean;
-    lost_license_details: string | null;
-    was_refused_insurance: boolean;
-    refused_insurance_details: string | null;
-    has_criminal_conviction: boolean;
-    criminal_conviction_details: string | null;
-    has_vehicle_modifications: boolean;
-    vehicle_modifications_details: string | null;
-    has_previous_insurer: boolean;
-    previous_insurer_details: string | null;
-    previous_insurer_expires_at: string | null;
-    additional_details: string | null;
+    vehicles?: QuoteRequestVehicle[];
+    purchase_options?: QuoteRequestPurchaseOption[];
 }
