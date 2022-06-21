@@ -2,6 +2,7 @@ import { Club } from "./Club";
 import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
+import { QuoteRequestLog } from "./QuoteRequestLog";
 import { QuoteRequestPurchaseOption } from "./QuoteRequestPurchaseOption";
 import { QuoteRequestReferrer } from "./QuoteRequestReferrer";
 import { QuoteRequestReferrerCategory } from "./QuoteRequestReferrerCategory";
@@ -86,4 +87,5 @@ export interface QuoteRequest {
     lead?: Lead;
     vehicles?: QuoteRequestVehicle[];
     purchase_options?: QuoteRequestPurchaseOption[];
+    logs?: QuoteRequestLog[];
 }
