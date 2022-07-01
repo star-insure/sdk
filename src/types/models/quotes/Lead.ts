@@ -1,3 +1,5 @@
+import { PostalAddress } from "./PostalAddress";
+
 export interface Lead {
     id: number;
     first_name: string;
