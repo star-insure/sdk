@@ -10,4 +10,4 @@ export * from './Club';
 export * from './Lead';
 export * from './StreetAddress';
 export * from './PostalAddress';
-export * from './Incident';
+export * from './QuoteRequestForm';

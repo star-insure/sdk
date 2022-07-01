@@ -1,10 +1,10 @@
 import { QuoteRequest } from "./QuoteRequest";
-import { Incident } from "./Incident";
+import { QuoteRequestIncident } from "./QuoteRequestForm";
 export interface QuoteRequestDeclaration {
     id: number;
     quote_request_id: QuoteRequest['id'] | null;
     had_incident: boolean | null;
-    incidents: Incident[] | null;
+    incidents: QuoteRequestIncident[] | null;
     has_demerit_points: boolean | null;
     demerit_points: string | null;
     has_lost_license: boolean | null;

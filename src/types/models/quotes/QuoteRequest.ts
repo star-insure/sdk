@@ -1,6 +1,6 @@
 import { Product, VehicleType } from "../../api";
 import { Club } from "./Club";
-import { Incident } from "./Incident";
+import { QuoteRequestIncident } from "./QuoteRequestForm";
 import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
@@ -130,7 +130,7 @@ export interface QuoteRequestForm {
     declaration: {
         id?: number;
         had_incident?: boolean | null;
-        incidents?: Incident[] | null;
+        incidents?: QuoteRequestIncident[] | null;
         has_demerit_points?: boolean | null;
         demerit_points?: string | null;
         has_lost_license?: boolean | null;
