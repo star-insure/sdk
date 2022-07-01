@@ -1,5 +1,6 @@
 import { QuoteRequest } from "./QuoteRequest";
 import { QuoteRequestIncident } from "./QuoteRequestForm";
+
 export interface QuoteRequestDeclaration {
     id: number;
     quote_request_id: QuoteRequest['id'] | null;
