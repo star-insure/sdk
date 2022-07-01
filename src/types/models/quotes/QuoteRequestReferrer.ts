@@ -1,3 +1,5 @@
+import { QuoteRequestReferrerCategory } from "./QuoteRequestReferrerCategory";
+
 export interface QuoteRequestReferrer {
     id: number;
     name: string;
