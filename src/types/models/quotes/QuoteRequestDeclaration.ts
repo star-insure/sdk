@@ -1,5 +1,5 @@
 import { QuoteRequest } from "./QuoteRequest";
-import { QuoteRequestIncident } from "./QuoteRequestForm";
+import { QuoteRequestIncident } from "./QuoteRequestIncident";
 
 export interface QuoteRequestDeclaration {
     id: number;

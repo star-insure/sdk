@@ -1,6 +1,6 @@
 import { Product, VehicleType } from "../../api";
 import { Club } from "./Club";
-import { QuoteRequestIncident } from "./QuoteRequestForm";
+import { QuoteRequestIncident } from "./QuoteRequestIncident";
 import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
@@ -124,6 +124,15 @@ export interface QuoteRequestForm {
     broker_firm_id?: QuoteRequestUserGroup['id'];
     broker_id?: QuoteRequestUser['id'];
     club_id?: Club['id'];
+
+    street_address: {
+        id?: number;
+        address?: string;
+        unit?: string;
+        suburb?: string;
+        city?: string;
+        post_code?: string;
+    },
 
     declaration: {
         id?: number;
