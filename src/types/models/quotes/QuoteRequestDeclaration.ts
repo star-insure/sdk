@@ -8,8 +8,8 @@ export interface QuoteRequestDeclaration {
     incidents: QuoteRequestIncident[] | null;
     has_demerit_points: boolean | null;
     demerit_points: string | null;
-    has_lost_license: boolean | null;
-    lost_license_details: string | null;
+    has_lost_licence: boolean | null;
+    lost_licence_details: string | null;
     was_refused_insurance: boolean | null;
     refused_insurance_details: string | null;
     has_criminal_conviction: boolean | null;

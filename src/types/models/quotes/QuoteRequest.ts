@@ -39,8 +39,8 @@ export interface QuoteRequest {
     phone: string | null;
     mobile: string | null;
     email: string | null;
-    license: string | null;
-    license_other: string | null;
+    licence: string | null;
+    licence_other: string | null;
     has_automatch: boolean | null;
     automatch_by: QuoteRequestAutomatch;
     automatch_client_id: string | null;
@@ -101,8 +101,8 @@ export interface QuoteRequestForm {
     phone?: string;
     mobile?: string;
     email?: string;
-    license?: string;
-    license_other?: string;
+    licence?: string;
+    licence_other?: string;
     promo_code?: string;
     club_membership_number?: string;
     broker_fee?: number;
@@ -131,8 +131,8 @@ export interface QuoteRequestForm {
         incidents?: QuoteRequestIncident[];
         has_demerit_points?: boolean;
         demerit_points?: string;
-        has_lost_license?: boolean;
-        lost_license_details?: string;
+        has_lost_licence?: boolean;
+        lost_licence_details?: string;
         was_refused_insurance?: boolean;
         refused_insurance_details?: string;
         has_criminal_conviction?: boolean;
