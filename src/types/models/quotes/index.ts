@@ -12,3 +12,4 @@ export * from './StreetAddress';
 export * from './PostalAddress';
 export * from './QuoteRequestIncident';
 export * from './QuoteRequestOptions';
+export * from './RedbookVehicle';
