@@ -1,3 +1,5 @@
+import { VehicleType } from "../../api";
+
 export interface QuoteRequestOptions {
     club_options: SimpleOption[];
     driver_licence_options: SimpleOption[];
@@ -8,7 +10,11 @@ export interface QuoteRequestOptions {
     referrer_category_options: SimpleOption[];
     relationship_options: SimpleOption[];
     storage_location_options: SimpleOption[];
-    vehicle_usage_options: SimpleOption[];
+    vehicle_usage_options: {
+        id: number;
+        name: string;
+        vehicle_type: VehicleType;
+    }[];
     policy_benefit_template_options: SimpleOption[];
     referrer_options: {
         id: number;
