@@ -137,7 +137,11 @@ export interface QuoteRequestForm {
     declaration: {
         id?: number;
         had_incident?: boolean;
-        incidents: QuoteRequestIncident[];
+        incidents: {
+            year?: string;
+            month?: string;
+            description?: string;
+        }[];
         has_demerit_points?: boolean;
         demerit_points?: string;
         has_lost_licence?: boolean;
