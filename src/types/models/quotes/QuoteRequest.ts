@@ -183,7 +183,7 @@ export interface QuoteRequestForm {
         }[];
     }[],
 
-    purchaseOptions?: {
+    purchase_options?: {
         id?: number;
         level_of_insurance_id?: number;
         sort_order?: number;
@@ -199,5 +199,5 @@ export interface QuoteRequestForm {
         sold_at?: string;
         is_paid?: boolean;
         payment_frequency?: PaymentFrequency;
-    },
+    }[],
 }
