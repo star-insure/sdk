@@ -13,3 +13,5 @@ export * from './PostalAddress';
 export * from './QuoteRequestIncident';
 export * from './QuoteRequestOptions';
 export * from './RedbookVehicle';
+export * from './QuoteRequestForm';
+export * from './QuoteRequestForm';
