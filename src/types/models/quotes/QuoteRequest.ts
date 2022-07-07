@@ -1,6 +1,5 @@
 import { Product, VehicleType } from "../../api";
 import { Club } from "./Club";
-import { QuoteRequestIncident } from "./QuoteRequestIncident";
 import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
