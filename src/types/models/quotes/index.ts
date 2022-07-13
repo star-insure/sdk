@@ -15,3 +15,4 @@ export * from './QuoteRequestOptions';
 export * from './RedbookVehicle';
 export * from './QuoteRequestForm';
 export * from './QuoteRequestForm';
+export * from './PolicyBenefit';
