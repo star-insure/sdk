@@ -2,7 +2,7 @@ import { PremiumType, QuoteRequestPurchaseOption } from "./QuoteRequestPurchaseO
 
 export interface PolicyEnhancement {
     id: number;
-    title: string | null;
+    name: string | null;
     description: string | null;
     premium: number | null;
     monthly_premium: number | null;
