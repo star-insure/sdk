@@ -20,7 +20,7 @@ export interface ClaimRequest {
     'broker_firm': string;
     'broker_name': string;
     'address': string;
-    'terms_accepted': boolean;
+    'terms_accepted_by': string;
 }
 
 export interface DamageClaimRequest extends ClaimRequest {
@@ -146,14 +146,12 @@ export interface GlassClaimRequest extends ClaimRequest {
 }
 
 export interface TheftClaimRequest extends ClaimRequest {
-    'vehicle_registration': string;
-    'vehicle_vin': string;
-    'vehicle_make': string;
-    'vehicle_model': string;
-    'vehicle_year': string|number;
-    'vehicle_type': VehicleType;
-    'finance_company': string;
-    'finance_phone': string;
+    // Registered owner details
+    'is_registered_under_same_name': boolean;
+    'registered_name': string;
+    'registered_address': string;
+    'registered_phone': string;
+    // Lease/hire-purchase details
     'is_leased': boolean;
     'lease_name': string;
     'lease_address': string;
@@ -161,6 +159,7 @@ export interface TheftClaimRequest extends ClaimRequest {
     'lease_number': string;
     'lease_payment_amount': string|number;
     'lease_payment_frequency': Frequency;
+    // Declaration details
     'has_conviction': boolean;
     'conviction_details': string;
     'has_recent_claim': boolean;
@@ -175,6 +174,15 @@ export interface TheftClaimRequest extends ClaimRequest {
     'refused_insurance_details': string;
     'has_additional_information': boolean;
     'additional_information_details': string;
+    // Vehicle details
+    'vehicle_registration': string;
+    'vehicle_vin': string;
+    'vehicle_make': string;
+    'vehicle_model': string;
+    'vehicle_year': string|number;
+    'vehicle_type': VehicleType;
+    'finance_company': string;
+    'finance_phone': string;
     'vehicle_purchased_on': string;
     'vehicle_purchased_from': string;
     'vehicle_purchased_price': string|number;
@@ -206,12 +214,14 @@ export interface TheftClaimRequest extends ClaimRequest {
     'vehicle_tyre_condition_rear_left': Condition;
     'vehicle_tyre_condition_spare': string;
     'wheel_assembly_details': string;
-    'is_vehicle_radio_original': boolean;
+    'vehicle_radio_type': string;
     'vehicle_radio_make': string;
     'vehicle_radio_location': string;
     'vehicle_radio_fixing': string;
     'vehicle_speaker_make': string;
+    'has_additional_accessories': boolean;
     'accessory_details': Accessory[];
+    'has_identifiable_contents': boolean;
     'identifiable_contents_details': Contents[];
     'vehicle_serviced_by': string;
     'has_service_invoices': boolean;
@@ -232,12 +242,17 @@ export interface TheftClaimRequest extends ClaimRequest {
     'vehicle_body_condition': Condition;
     'vehicle_paint_condition': Condition;
     'vehicle_dashboard_condition': Condition;
+    'did_engine_use_oil': boolean;
     'vehicle_engine_oil_per_month': string;
     'vehicle_ran_well': boolean;
+    'vehicle_ran_poorly_details': string;
+    // Theft details
     'theft_details': string;
     'theft_happened_on': string;
-    'theft_discovered_on': string;
+    'theft_discovered_at': string;
+    'last_seen_at': string;
     'vehicle_last_used_by': string;
+    'address_stolen_from': string;
     'were_windows_up': boolean;
     'windows_down_details': string;
     'were_doors_locked': boolean;
@@ -245,6 +260,7 @@ export interface TheftClaimRequest extends ClaimRequest {
     'has_theft_evidence': boolean;
     'theft_evidence_details': string;
     'has_steering_lock': boolean;
+    'was_steering_lock_activated': boolean;
     'has_alarm': boolean;
     'was_alarm_active': boolean;
     'alarm_inactive_details': string;
@@ -256,12 +272,23 @@ export interface TheftClaimRequest extends ClaimRequest {
     'key_holder_address': string;
     'keys_location': string;
     'policyholder_whereabouts_details': string;
+    // Police details
     'were_police_notified': boolean;
     'did_police_attend': boolean;
     'police_officer_name': string;
     'police_officer_email': string;
     'police_reference': string;
     'police_station_address': string;
+    'police_not_notified_details': string;
+    'police_have_suspect': boolean;
+    'police_suspect_details': string;
+    'policyholder_has_suspect': boolean;
+    'policyholder_suspect_details': string;
+    'was_theft_witnessed': boolean;
+    'theft_witnessed_details': string;
+    'has_cctv_footage': boolean;
+    'cctv_footage_details': string;
+    // Contents details
     'is_claiming_contents': boolean;
     'is_contents_insured_elsewhere': boolean;
     'contents_details':  ClaimItem[];
