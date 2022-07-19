@@ -1,3 +1,5 @@
+import { User } from "../auth";
+
 export type InformationRequestStatus = 'open' | 'closed';
 
 export interface InformationRequest {
@@ -9,6 +11,7 @@ export interface InformationRequest {
     subject: string;
     status: InformationRequestStatus;
     messages?: InformationRequestMessage[];
+    user?: User;
 }
 
 export interface InformationRequestMessage {
@@ -19,6 +22,7 @@ export interface InformationRequestMessage {
     user_id: number | null;
     content: string;
     has_been_read_by_customer: boolean;
+    user?: User;
 }
 
 export interface InformationRequestAttachment {
