@@ -16,3 +16,4 @@ export * from './RedbookVehicle';
 export * from './QuoteRequestForm';
 export * from './QuoteRequestForm';
 export * from './PolicyBenefit';
+export * from './InformationRequest';

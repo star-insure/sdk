@@ -1,4 +1,5 @@
 import { Club } from "./Club";
+import { InformationRequest } from "./InformationRequest";
 import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
@@ -86,4 +87,5 @@ export interface QuoteRequest {
     vehicles?: QuoteRequestVehicle[];
     purchase_options?: QuoteRequestPurchaseOption[];
     logs?: QuoteRequestLog[];
+    informationRequests?: InformationRequest[];
 }
