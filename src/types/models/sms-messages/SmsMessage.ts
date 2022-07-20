@@ -4,8 +4,8 @@ import { SmsMessageReply } from "./SmsMessageReply";
 
 export interface SmsMessage {
     id: number;
-    created_at: number;
-    updated_at: number;
+    created_at: string;
+    updated_at: string;
     content: string;
     recipients: string;
     reference: string | null;
