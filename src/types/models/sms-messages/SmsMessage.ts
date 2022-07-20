@@ -13,6 +13,6 @@ export interface SmsMessage {
     user_id: number | null;
     quote_request_id: string | null;
     messages?: SmsMessageReply[];
-    quoteRequest?: QuoteRequest;
+    quote_request?: QuoteRequest;
     user?: User;
 }
