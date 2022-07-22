@@ -20,6 +20,8 @@ export interface QuoteRequestPurchaseOption {
     excess_details: string | null;
     terms: string | null;
     authorised_drivers: string | null;
+    draft: boolean | null;
+    benefit_template_id: number | null;
 
     // Relationships
     level_of_insurance?: LevelOfInsurance;
