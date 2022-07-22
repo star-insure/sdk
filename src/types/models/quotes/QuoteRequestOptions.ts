@@ -31,10 +31,9 @@ export interface QuoteRequestOptions {
     };
     policy_enhancement_options: {
         id: number;
-        title: string;
+        name: string;
         description: string;
         premium: number;
-        monthly_premium: number;
         disable_rounding: boolean;
         auto_select: boolean;
     };
