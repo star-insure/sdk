@@ -20,7 +20,7 @@ export interface QuoteRequestOptions {
         id: number;
         name: string;
         category_id: number;
-    };
+    }[];
     policy_benefit_options: {
         id: number;
         name: string;
@@ -28,7 +28,7 @@ export interface QuoteRequestOptions {
         auto_select: boolean;
         template_id: number;
         sort_order: number;
-    };
+    }[];
     policy_enhancement_options: {
         id: number;
         name: string;
@@ -36,7 +36,22 @@ export interface QuoteRequestOptions {
         premium: number;
         disable_rounding: boolean;
         auto_select: boolean;
-    };
+    }[];
+    authorised_drivers_options: {
+        id: number;
+        name: string;
+        description: string;
+    }[];
+    terms_options: {
+        id: number;
+        name: string;
+        description: string;
+    }[];
+    excess_options: {
+        id: number;
+        name: string;
+        description: string;
+    }[];
 }
 
 interface SimpleOption {
