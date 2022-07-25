@@ -88,4 +88,9 @@ export interface QuoteRequest {
     purchase_options?: QuoteRequestPurchaseOption[];
     logs?: QuoteRequestLog[];
     informationRequests?: InformationRequest[];
+    links?: {
+        purchase: string;
+        purchase_options_pdf: string;
+        documentation_pdf: string;
+    }
 }
