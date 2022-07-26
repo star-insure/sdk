@@ -87,7 +87,7 @@ export interface QuoteRequest {
     vehicles?: QuoteRequestVehicle[];
     purchase_options?: QuoteRequestPurchaseOption[];
     logs?: QuoteRequestLog[];
-    informationRequests?: InformationRequest[];
+    information_requests?: InformationRequest[];
     links?: {
         purchase: string;
         purchase_options_pdf: string;
