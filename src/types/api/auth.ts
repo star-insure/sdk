@@ -7,4 +7,5 @@ export interface AuthContext {
     audience?: Audience;
     group?: Group;
     permissions: string[];
+    is_app?: boolean;
 }
