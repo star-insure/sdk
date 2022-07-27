@@ -22,8 +22,8 @@ export interface InformationRequestMessage {
     user_id: number | null;
     content: string;
     has_been_read_by_customer: boolean;
-    sent: boolean;
-    received: boolean;
+    sent_at: string;
+    received_at: string;
     user?: User;
     attachments?: InformationRequestAttachment[];
 }
