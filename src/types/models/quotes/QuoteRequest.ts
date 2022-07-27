@@ -33,6 +33,7 @@ export interface QuoteRequest {
     source: QuoteRequestSource;
     reference: string;
     client_number: string;
+    policy_number: string | null;
     first_name: string | null;
     last_name: string | null;
     phone: string | null;
