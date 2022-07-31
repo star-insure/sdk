@@ -1,10 +1,11 @@
 import { format } from "date-fns";
 
 /**
- * Formats a date like "Jan 1, 2022"
+ * Formats a date like "Jan 1, 2022 at 9:50am"
  */
-export function formatDateNice(date: string) {
-    return format(new Date(date), "MMM d, yyyy");
+export function formatDateNice(date: string, includeTime: boolean = true) {
+    const formatString = includeTime ? "MMM d, yyyy 'at' h:mma" : 'MMM d, yyyy';
+    return format(new Date(date), formatString);
 }
 
 /**
