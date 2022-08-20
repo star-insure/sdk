@@ -21,4 +21,10 @@ export interface RedbookVehicle {
     vin: string | null;
     weight: number | null;
     year: number | null;
+    valuation_details: { [x: string]: any } | null;
+    chassis_number: string | null;
+    fuel_type: string | null;
+    previous_registered_country: string | null;
+    overseas_first_registered_year: number | null;
+    overseas_first_registered_month: number | null;
 }
