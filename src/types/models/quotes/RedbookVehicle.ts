@@ -21,10 +21,39 @@ export interface RedbookVehicle {
     vin: string | null;
     weight: number | null;
     year: number | null;
-    valuation_details: { [x: string]: any } | null;
+    valuation_details: Valuation[] | null;
     chassis_number: string | null;
     fuel_type: string | null;
     previous_registered_country: string | null;
     overseas_first_registered_year: number | null;
     overseas_first_registered_month: number | null;
+}
+
+export interface Valuation {
+    matchedRedbookVehicle: MatchedRedbookVehicle;
+    valuationDetail: ValuationDetail;
+};
+
+export interface MatchedRedbookVehicle {
+    make?: string;
+    model?: string;
+    year?: number;
+    description?: string;
+    redbookCode: string;
+}
+
+export interface ValuationDetail {
+    newRetailValue: number;
+    targetConditionTypeAvailable: boolean;
+    newValueAvailable: boolean;
+    pricingBandAvailable: boolean;
+    retailValueList: RetailValueList[];
+}
+
+export interface RetailValueList {
+    condition: string;
+    lowerPricingRange: number;
+    upperPricingRange: number;
+    value: number;
+    kilometers: number;
 }
