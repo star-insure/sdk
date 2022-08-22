@@ -23,6 +23,7 @@ export interface QuoteRequestForm {
     broker_fee?: number;
     length_of_insurance?: string;
     theme?: string;
+    notes?: string;
 
     dob?: string;
     sold_at?: string;

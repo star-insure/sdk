@@ -14,7 +14,7 @@ export type QuoteRequestStatus = 'new' | 'draft' | 'in-progress' | 'with-custome
 
 export type QuoteRequestSource = 'web' | 'phone' | 'show' | 'existing-customer' | 'mighway' | 'agent' | 'entry-form' | 'bularangi';
 
-export type QuoteRequestAutomatch = 'QUOTE' | 'EMAIL' | 'REGISTRATION' | 'DUPLICATE' | null;
+export type QuoteRequestAutomatch = 'QUOTE' | 'EMAIL' | 'REGISTRATION' | 'DUPLICATE';
 
 export interface QuoteRequestUser {
     id: number;
@@ -28,48 +28,49 @@ export interface QuoteRequestUserGroup {
 }
 
 export interface QuoteRequest {
-    id: string;
-    status: QuoteRequestStatus;
-    source: QuoteRequestSource;
-    reference: string;
-    client_number: string;
-    policy_number: string | null;
-    first_name: string | null;
-    last_name: string | null;
-    phone: string | null;
-    mobile: string | null;
-    email: string | null;
-    licence: string | null;
-    licence_other: string | null;
-    has_automatch: boolean | null;
-    automatch_by: QuoteRequestAutomatch;
-    automatch_client_id: string | null;
-    promo_code: string | null;
-    club_membership_number: string | null;
-    broker_fee: number | null;
-    length_of_insurance: string | null;
-    theme: string | null;
+    id?: string;
+    status?: QuoteRequestStatus;
+    source?: QuoteRequestSource;
+    reference?: string;
+    client_number?: string;
+    policy_number?: string;
+    first_name?: string;
+    last_name?: string;
+    phone?: string;
+    mobile?: string;
+    email?: string;
+    licence?: string;
+    licence_other?: string;
+    has_automatch?: boolean;
+    automatch_by?: QuoteRequestAutomatch;
+    automatch_client_id?: string;
+    promo_code?: string;
+    club_membership_number?: string;
+    broker_fee?: number;
+    length_of_insurance?: string;
+    theme?: string;
+    notes?: string;
 
     // Dates
-    created_at: string;
-    updated_at: string;
-    dob: string | null;
-    sold_at: string | null;
-    sent_at: string | null;
-    pricing_expires_at: string | null;
-    follow_up_at: string | null;
+    created_at?: string;
+    updated_at?: string;
+    dob?: string;
+    sold_at?: string;
+    sent_at?: string;
+    pricing_expires_at?: string;
+    follow_up_at?: string;
 
     // Foreign keys
-    resubmit_id: QuoteRequest['id'] | null;
-    referrer_id: QuoteRequestReferrer['id'] | null;
-    referrer_category_id: QuoteRequestReferrerCategory['id'] | null;
-    staff_member_id: QuoteRequestUser['id'] | null;
-    agent_id: QuoteRequestUser['id'] | null;
-    agent_firm_id: QuoteRequestUserGroup['id'] | null;
-    broker_firm_id: QuoteRequestUserGroup['id'] | null;
-    broker_id: QuoteRequestUser['id'] | null;
-    club_id: Club['id'] | null;
-    lead_id: Lead['id'] | null;
+    resubmit_id?: QuoteRequest['id'];
+    referrer_id?: QuoteRequestReferrer['id'];
+    referrer_category_id?: QuoteRequestReferrerCategory['id'];
+    staff_member_id?: QuoteRequestUser['id'];
+    agent_id?: QuoteRequestUser['id'];
+    agent_firm_id?: QuoteRequestUserGroup['id'];
+    broker_firm_id?: QuoteRequestUserGroup['id'];
+    broker_id?: QuoteRequestUser['id'];
+    club_id?: Club['id'];
+    lead_id?: Lead['id'];
 
     // Relationships
     declaration?: QuoteRequestDeclaration;
