@@ -18,3 +18,4 @@ export * from './QuoteRequestForm';
 export * from './PolicyBenefit';
 export * from './InformationRequest';
 export * from './EmailContentOption';
+export * from './MotorwebVehicle';
