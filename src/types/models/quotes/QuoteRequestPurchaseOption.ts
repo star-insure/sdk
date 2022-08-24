@@ -1,4 +1,4 @@
-import { PolicyBenefit } from "./PolicyBenefit";
+import { PolicyBenefit, PolicyBenefitTemplate } from "./PolicyBenefit";
 import { PolicyEnhancement } from "./PolicyEnhancement";
 
 export interface QuoteRequestPurchaseOption {
@@ -20,13 +20,15 @@ export interface QuoteRequestPurchaseOption {
     excess_details?: string;
     terms?: string;
     authorised_drivers?: string;
-    draft?: boolean;
+    is_draft?: boolean;
+    is_direct_debit?: boolean;
     benefit_template_id?: number;
 
     // Relationships
     level_of_insurance?: LevelOfInsurance;
     enhancements?: PolicyEnhancement[];
     benefits?: PolicyBenefit[];
+    benefit_template?: PolicyBenefitTemplate;
 }
 
 export type PremiumType = 'annual' | 'total-due';
