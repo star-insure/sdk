@@ -14,7 +14,7 @@ export type QuoteRequestStatus = 'new' | 'draft' | 'in-progress' | 'with-custome
 
 export type QuoteRequestSource = 'web' | 'phone' | 'show' | 'existing-customer' | 'mighway' | 'agent' | 'entry-form' | 'bularangi';
 
-export type QuoteRequestAutomatch = 'QUOTE' | 'EMAIL' | 'REGISTRATION' | 'DUPLICATE';
+export type QuoteRequestAutomatch = 'quote' | 'email' | 'registration' | 'duplicate';
 
 export interface QuoteRequestUser {
     id: number;
@@ -44,6 +44,7 @@ export interface QuoteRequest {
     has_automatch?: boolean;
     automatch_by?: QuoteRequestAutomatch;
     automatch_client_id?: string;
+    automatch_registrations?: string;
     promo_code?: string;
     club_membership_number?: string;
     broker_fee?: number;
