@@ -7,5 +7,6 @@ export interface PolicyEnhancement {
     premium?: number;
     disable_rounding?: boolean;
     auto_select?: boolean;
+    sold_at?: string;
     purchase_option_id?: QuoteRequestPurchaseOption['id'];
 }
