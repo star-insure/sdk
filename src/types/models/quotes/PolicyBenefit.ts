@@ -4,6 +4,7 @@ export interface PolicyBenefit {
     description?: string;
     sort_order?: number;
     icon?: string;
+    auto_select?: boolean;
     template_id?: PolicyBenefitTemplate['id'];
 }
 
