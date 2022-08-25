@@ -1,10 +1,10 @@
 export interface QuoteRequestVehicleDriver {
     id?: number;
-    first_name?: string | null;
-    last_name?: string | null;
-    dob?: string | null;
-    relationship?: string | null;
-    licence?: string | null;
-    licence_other?: string | null;
+    first_name?: string;
+    last_name?: string;
+    dob?: string;
+    relationship?: string;
+    licence?: string;
+    licence_other?: string;
     quote_request_vehicle_id?: number;
 }
