@@ -7,4 +7,5 @@ export interface QuoteRequestLog {
     user_id: number | null;
     user?: User;
     activity_type: string;
+    message: string;
 }
