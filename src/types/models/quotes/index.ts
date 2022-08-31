@@ -19,3 +19,4 @@ export * from './PolicyBenefit';
 export * from './InformationRequest';
 export * from './EmailContentOption';
 export * from './MotorwebVehicle';
+export * from './PromoCode';
