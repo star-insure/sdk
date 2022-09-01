@@ -8,6 +8,7 @@ export interface PromoCode {
     user_id?: number;
     group_id?: number;
     referrer_id?: number;
+    referrer_category_id?: number;
     advisor_type?: 'agent' | 'broker';
     group?: Group;
 }
