@@ -1,4 +1,4 @@
-import { Group } from "../auth";
+import { Group, User } from "../auth";
 import { QuoteRequestReferrer } from "./QuoteRequestReferrer";
 import { QuoteRequestReferrerCategory } from "./QuoteRequestReferrerCategory";
 
@@ -12,6 +12,7 @@ export interface PromoCode {
     referrer_id?: number;
     referrer_category_id?: number;
     advisor_type?: 'agent' | 'broker';
+    user?: User;
     group?: Group;
     referrer?: QuoteRequestReferrer;
     category?: QuoteRequestReferrerCategory;
