@@ -93,6 +93,7 @@ export interface QuoteRequest {
     information_requests?: InformationRequest[];
     links?: {
         purchase: string;
+        purchase_preview: string;
         purchase_options_pdf: string;
         documentation_pdf: string;
     }
