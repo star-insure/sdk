@@ -14,6 +14,7 @@ export interface Payment {
     client_number: string | null;
     amount: number;
     processing_fee: number | null;
+    surcharge: number | null;
     name: string | null;
     email: string | null;
     phone: string | null;
