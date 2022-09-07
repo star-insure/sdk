@@ -1,4 +1,5 @@
 import { User } from "../auth";
+import { QuoteRequest } from "../quotes";
 import { GatewayKey } from "./Gateways";
 
 export type PaymentStatus = 'accepted' | 'incomplete' | 'declined';
@@ -10,6 +11,7 @@ export interface Payment {
     updated_at: string;
     status: PaymentStatus;
     reference: string | null;
+    client_number: string | null;
     amount: number;
     processing_fee: number | null;
     name: string | null;
@@ -29,4 +31,6 @@ export interface Payment {
     card_token: string | null;
     user_id: User['id'] | null;
     return_url: string | null;
+    user?: User;
+    quoteRequest?: QuoteRequest;
 }

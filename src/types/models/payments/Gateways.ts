@@ -5,4 +5,5 @@ export type GatewayKey =
     'SIS_Windcave_PxPayYear' |
     'SIS_Windcave_PxPayStaff' |
     'SIS_Windcave_PxPayTradeMeStaff' |
+    'bind' |
     'invoice';
