@@ -1,6 +1,6 @@
 import { User, Group } from "../models";
 
-export type UserContext = 'administrator' | 'staff' | 'broker' | 'agent';
+export type UserContext = 'administrator' | 'staff' | 'broker' | 'agent' | 'security' | 'customer';
 
 export interface AuthContext {
     user?: User;
