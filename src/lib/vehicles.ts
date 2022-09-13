@@ -24,7 +24,6 @@ export function sanitiseVehicleType(inputType: string): VehicleType {
         case 'ATV':
         case 'Agricultural Machine':
         case 'MOTORCYCLE':
-        case 'ATV':
         case 'MOPED':
         case 'TRACTOR':
         case 'AGRICULTURAL_MACHINE':

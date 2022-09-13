@@ -38,7 +38,7 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "module": "dist/starinsure-sdk.esm.js",
+    "module": "dist/sdk.esm.js",
     "size-limit": [
         {
             "path": "dist/starinsure-sdk.cjs.production.min.js",
