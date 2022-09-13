@@ -6,6 +6,6 @@ describe('dates', () => {
     });
 
     it('can_format_date_nice', () => {
-        expect(formatDateNice('2022-06-17 09:32:54')).toEqual('Jun 17, 2022');
+        expect(formatDateNice('2022-06-17 09:32:54', false)).toEqual('Jun 17, 2022');
     });
 });
