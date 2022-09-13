@@ -11,6 +11,7 @@
     "main": "index.js",
     "typings": "index.d.ts",
     "files": [
+        "dist",
         "src"
     ],
     "engines": {
@@ -20,12 +21,28 @@
         "dev": "tsc",
         "build": "tsc"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
     "prettier": {
         "printWidth": 80,
         "semi": true,
         "singleQuote": true,
         "trailingComma": "es5"
     },
+    "module": "dist/starinsure-sdk.esm.js",
+    "size-limit": [
+        {
+            "path": "dist/starinsure-sdk.cjs.production.min.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/starinsure-sdk.esm.js",
+            "limit": "10 KB"
+        }
+    ],
     "devDependencies": {
         "@size-limit/preset-small-lib": "^7.0.8",
         "@types/lodash-es": "^4.17.6",
