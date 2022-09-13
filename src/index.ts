@@ -1,3 +1,3 @@
-export * from './types';
-export * from './lib';
-export * from './components';
+export * as types from './types';
+export * as lib from './lib';
+export * as components from './components';
