@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuoteRequestOptions } from '../';
+import { QuoteRequestOptions } from '../types';
 
 interface QuoteRequestFormContextInterface {
     options?: QuoteRequestOptions;
