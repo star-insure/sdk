@@ -19,7 +19,7 @@
     },
     "scripts": {
         "dev": "tsc",
-        "build": "tsc build"
+        "build": "tsc"
     },
     "husky": {
         "hooks": {
