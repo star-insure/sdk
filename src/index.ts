@@ -1,3 +1,9 @@
-export * as types from './types';
-export * as lib from './lib';
-export * as components from './components';
+import * as types from './types';
+import * as lib from './lib';
+import * as components from './components';
+
+export {
+    types,
+    lib,
+    components,
+}
