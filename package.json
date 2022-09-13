@@ -8,8 +8,8 @@
         "type": "git",
         "url": "https://github.com/star-insure/sdk"
     },
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
+    "main": "./index.js",
+    "typings": "./index.d.ts",
     "files": [
         "dist",
         "src"
@@ -18,14 +18,8 @@
         "node": ">=10"
     },
     "scripts": {
-        "dev": "tsdx watch",
-        "start": "tsdx watch",
-        "build": "tsdx build",
-        "test": "tsdx test",
-        "lint": "tsdx lint",
-        "prepare": "tsdx build",
-        "size": "size-limit",
-        "analyze": "size-limit --why"
+        "dev": "tsc",
+        "build": "tsc"
     },
     "husky": {
         "hooks": {
