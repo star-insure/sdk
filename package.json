@@ -8,8 +8,8 @@
         "type": "git",
         "url": "https://github.com/star-insure/sdk"
     },
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
+    "main": "index.js",
+    "typings": "index.d.ts",
     "files": [
         "dist",
         "src"
