@@ -1,4 +1,12 @@
-*.log
-.DS_Store
-node_modules
-dist
+/*
+# Add files you need to exclusions
+!LICENSE
+!README.md
+!package.json
+!package-lock.json
+!tsconfig.json
+!yarn.lock
+*.DS_Store
+
+!src/
+!test/
