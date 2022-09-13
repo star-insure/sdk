@@ -18,8 +18,14 @@
         "node": ">=10"
     },
     "scripts": {
-        "dev": "tsc",
-        "build": "tsc"
+        "dev": "tsdx watch",
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test --passWithNoTests",
+        "lint": "tsdx lint",
+        "prepare": "tsdx build",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
     },
     "husky": {
         "hooks": {
