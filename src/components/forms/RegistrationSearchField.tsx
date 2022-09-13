@@ -1,5 +1,6 @@
 import React from 'react';
-import { ApiResponse, FormStatus, MotorwebVehicleResponse, sanitiseVehicleType, VehicleType } from '../../';
+import { sanitiseVehicleType } from '../../lib';
+import { ApiResponse, FormStatus, MotorwebVehicleResponse, VehicleType } from '../../types';
 import { useToast } from '../../lib/toast';
 
 export interface VehicleData extends MotorwebVehicleResponse {
