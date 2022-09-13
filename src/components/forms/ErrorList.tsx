@@ -9,7 +9,7 @@ interface Props {
     className?: string;
 }
 
-export default function Errors({ heading = 'There was an error with your submission.', errors = {}, renderKeys = false, className = '' }: Props) {
+export default function ErrorList({ heading = 'There was an error with your submission.', errors = {}, renderKeys = false, className = '' }: Props) {
     if (Object.values(errors).length === 0) {
         return <></>
     }
