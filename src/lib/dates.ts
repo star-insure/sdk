@@ -12,6 +12,6 @@ export function formatDateNice(date: string, includeTime: boolean = true) {
  * Formats a date like "01/01/2022 9:50AM"
  */
 export function formatDateForTable(date: string, includeTime: boolean = true) {
-    const formatString = includeTime ? 'dd/MM/yyyy h:mma' : 'dd/MM/yyyy';
+    const formatString = includeTime ? 'dd/MM/yyyy H:mm' : 'dd/MM/yyyy';
     return format(new Date(date), formatString);
 }
