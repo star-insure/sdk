@@ -1,3 +1,4 @@
+import { BlacklistEntry } from "./Blacklist";
 import { Club } from "./Club";
 import { InformationRequest } from "./InformationRequest";
 import { Lead } from "./Lead";
@@ -72,6 +73,7 @@ export interface QuoteRequest {
     broker_id?: QuoteRequestUser['id'];
     club_id?: Club['id'];
     lead_id?: Lead['id'];
+    blacklist_entry_id?: BlacklistEntry['id'];
 
     // Relationships
     declaration?: QuoteRequestDeclaration;
@@ -96,5 +98,6 @@ export interface QuoteRequest {
         purchase_preview: string;
         purchase_options_pdf: string;
         documentation_pdf: string;
-    }
+    },
+    blacklist_entry?: BlacklistEntry;
 }
