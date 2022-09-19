@@ -20,3 +20,4 @@ export * from './InformationRequest';
 export * from './EmailContentOption';
 export * from './MotorwebVehicle';
 export * from './PromoCode';
+export * from './Blacklist';
