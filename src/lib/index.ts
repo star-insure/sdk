@@ -10,3 +10,4 @@ export * from './quoteRequestForm';
 export * from './quoteRequestOptions';
 export * from './addressFinder';
 export * from './calculateAge';
+export * from './calculatePricing';
