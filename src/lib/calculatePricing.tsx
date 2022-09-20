@@ -7,7 +7,7 @@ interface CalculationArguments {
     brokerFee?: number;
 }
 
-function calculateMonthly({ option, selectedEnhancements, brokerFee = 0 }: CalculationArguments) {
+function calculateMonthly({ option, selectedEnhancements }: CalculationArguments) {
     const premium = option.monthly_premium || 0;
 
     const enhancementsCost = selectedEnhancements.reduce((acc, id) => {
