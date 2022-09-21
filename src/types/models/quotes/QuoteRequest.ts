@@ -44,7 +44,6 @@ export interface QuoteRequest {
     licence_other?: string;
     has_automatch?: boolean;
     automatch_by?: QuoteRequestAutomatch;
-    automatch_client_id?: string;
     automatch_registrations?: string;
     promo_code?: string;
     club_membership_number?: string;
