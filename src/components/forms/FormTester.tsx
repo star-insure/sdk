@@ -93,8 +93,6 @@ export default function FormTester({ populatePurchaseOptions = false }: Props) {
                     monthly_premium: 8500,
                     show_monthly: true,
                     fsl: 100,
-                    benefits: [{id: 2}, {id: 8}],
-                    benefit_template_id: 3,
                     sort_order: 1,
                     enhancements: [
                         { name: 'Test enhancement', premium: 2500, disable_rounding: false, description: 'Test enhancement', auto_select: true },
@@ -111,8 +109,6 @@ export default function FormTester({ populatePurchaseOptions = false }: Props) {
                     premium: 100000,
                     show_monthly: false,
                     fsl: 100,
-                    benefits: [{id: 2}, {id: 8}],
-                    benefit_template_id: 3,
                     sort_order: 2,
                     enhancements: [
                         { name: 'Test enhancement', premium: 2500, disable_rounding: false, description: 'Test enhancement', auto_select: true },
