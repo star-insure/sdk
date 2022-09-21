@@ -10,7 +10,7 @@ interface QuoteRequestFormContextInterface {
 export const initialData: QuoteRequest = {
     id: undefined,
     status: 'new',
-    source: 'web',
+    source: 'phone',
     reference: '',
     client_number: '',
     first_name: '',

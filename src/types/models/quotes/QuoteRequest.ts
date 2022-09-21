@@ -13,7 +13,7 @@ import { StreetAddress } from "./StreetAddress";
 
 export type QuoteRequestStatus = 'new' | 'draft' | 'in-progress' | 'with-customer' | 'sold' | 'bound' | 'customer-modified' | 'closed';
 
-export type QuoteRequestSource = 'web' | 'phone' | 'show' | 'existing-customer' | 'mighway' | 'agent' | 'entry-form' | 'bularangi';
+export type QuoteRequestSource = 'web' | 'phone' | 'show' | 'existing-customer' | 'mighway' | 'agent' | 'broker' |  'entry-form' | 'bularangi';
 
 export type QuoteRequestAutomatch = 'quote' | 'email' | 'registration' | 'duplicate';
 
