@@ -5,7 +5,7 @@ interface Options {
     successMessage?: string;
 }
 
-export function useInertiaOptions({ successMessage = '' }: Options): VisitOptions {
+export function useInertiaOptions({ successMessage = '' }: Options = {}): VisitOptions {
     const { addToast } = useToast();
 
     return {
