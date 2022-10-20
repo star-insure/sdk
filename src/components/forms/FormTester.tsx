@@ -73,7 +73,7 @@ export default function FormTester({ populatePurchaseOptions = false }: Props) {
                         {
                             first_name: 'X Æ',
                             last_name: 'A-12',
-                            dob: '2020-05-04',
+                            dob: '2000-05-04',
                             licence: 'Other',
                             licence_other: 'None',
                             relationship: 'Child',
