@@ -9,6 +9,7 @@ export interface QuoteRequestPurchaseOption {
     description?: string;
     premium?: number;
     monthly_premium?: number;
+    purchased_total?: number;
     show_monthly?: boolean;
     fsl?: number;
     gst?: number;
