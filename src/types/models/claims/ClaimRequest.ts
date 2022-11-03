@@ -3,8 +3,8 @@ import { Condition, Frequency, VehicleType } from "../../api";
 export type ClaimRequestStatus = 'new' | 'draft' | 'in-progress' | 'exported';
 
 export interface ClaimRequest {
-    id: string;
-    reference: string;
+    'id': string;
+    'reference': string;
     'status': ClaimRequestStatus;
     'submitted_at': string;
     'reminder_sent_at': string;
@@ -21,9 +21,32 @@ export interface ClaimRequest {
     'broker_name': string;
     'address': string;
     'terms_accepted_by': string;
+
+    'loss_estimate': string;
+    'excess': string;
+    'excess_status': string;
+    'sum_insured': string;
+    'cover_type': string;
+    'reserve_expense': string;
+    'fault_flag': string;
+    'category': string;
+    'substatus': string;
+    'severity_code': string;
+    'action': string;
+    'vehicle_type_code': string;
+    'vehicle_make_code': string;
+    'eglobal_user_id': string;
+    'client_comments': string;
+    'insurer_comments': string;
+    'status_line': string;
+    'claim_summary': string;
+    'driver_gender': string;
+    'is_assessor_required': string;
+    'acceptance_code': string;
 }
 
 export interface DamageClaimRequest extends ClaimRequest {
+    'claim_type': 'damage';
     'vehicle_registration': string;
     'vehicle_vin': string;
     'vehicle_make': string;
@@ -132,6 +155,7 @@ export interface ClaimItem {
 }
 
 export interface GlassClaimRequest extends ClaimRequest {
+    'claim_type': 'glass';
     'vehicle_registration': string;
     'vehicle_vin': string;
     'vehicle_make': string;
@@ -146,6 +170,7 @@ export interface GlassClaimRequest extends ClaimRequest {
 }
 
 export interface TheftClaimRequest extends ClaimRequest {
+    'claim_type': 'theft';
     // Registered owner details
     'is_registered_under_same_name': boolean;
     'registered_name': string;
