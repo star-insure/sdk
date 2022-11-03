@@ -88,6 +88,7 @@ export interface DamageClaimRequest extends ClaimRequest {
     'has_witnesses'?: boolean;
     'witness_details'?: Witness[];
     'accident_description'?: string;
+    'vehicle_location'?: string;
     'is_vehicle_drivable'?: boolean;
     'vehicle_drivable_details'?: string;
     'was_warning_given'?: boolean;
