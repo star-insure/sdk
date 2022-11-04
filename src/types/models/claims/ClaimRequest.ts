@@ -42,6 +42,18 @@ export interface ClaimRequest {
     'driver_gender'?: string;
     'is_assessor_required'?: boolean;
     'acceptance_code'?: string;
+    'attachments'?: ClaimRequestAttachment[];
+}
+
+export interface ClaimRequestAttachment {
+    'id': number;
+    'created_at': string;
+    'updated_at': string;
+    'claim_request_id': ClaimRequest['id'];
+    'title': string;
+    'url': string;
+    'disk'?: string;
+    'claim_request_type'?: string;
 }
 
 export interface DamageClaimRequest extends ClaimRequest {
