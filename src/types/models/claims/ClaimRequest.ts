@@ -42,6 +42,7 @@ export interface ClaimRequest {
     'driver_gender'?: string;
     'is_assessor_required'?: boolean;
     'acceptance_code'?: string;
+    'client_number'?: string;
     'attachments'?: ClaimRequestAttachment[];
 }
 
