@@ -61,6 +61,7 @@ export interface DamageClaimRequest extends ClaimRequest {
     'claim_type': 'damage';
     'vehicle_registration'?: string;
     'vehicle_vin'?: string;
+    'vehicle_make_and_model'?: string;
     'vehicle_make'?: string;
     'vehicle_model'?: string;
     'vehicle_year'?: string|number;
@@ -171,6 +172,7 @@ export interface GlassClaimRequest extends ClaimRequest {
     'claim_type': 'glass';
     'vehicle_registration'?: string;
     'vehicle_vin'?: string;
+    'vehicle_make_and_model'?: string;
     'vehicle_make'?: string;
     'vehicle_model'?: string;
     'vehicle_year'?: string|number;
@@ -215,6 +217,7 @@ export interface TheftClaimRequest extends ClaimRequest {
     // Vehicle details
     'vehicle_registration'?: string;
     'vehicle_vin'?: string;
+    'vehicle_make_and_model'?: string;
     'vehicle_make'?: string;
     'vehicle_model'?: string;
     'vehicle_year'?: string|number;
