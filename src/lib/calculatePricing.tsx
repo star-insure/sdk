@@ -49,11 +49,30 @@ export function calcMonthlyEnhancementPrice(enhancement: PolicyEnhancement): num
     return Math.round(Math.ceil(monthlyPremium) * 100);
 }
 
+/**
+ * Fix rounding errors we get from subtracting, and then adding GST back on
+ * (Issues with 2 decimal place rounding)
+ */
+ export function fixRoundingError(premium: number) {
+    // If the premium ends in "01" then we need to round it down
+    if (premium % 100 === 1) {
+        return premium - 1;
+    }
+
+    // If the premium ends in "99" then we need to round it up
+    if (premium % 100 === 99) {
+        return premium + 1;
+    }
+
+    return premium;
+}
+
 export function calcPurchaseOptionPricing({ option, selectedEnhancements, brokerFee = 0 }: CalculationArguments) {
     const monthly = calculateMonthly({ option, selectedEnhancements });
     const annually = calculateAnnually({ option, selectedEnhancements, brokerFee });
-    const monthlyWithGst = addGst(monthly);
-    const annuallyWithGst = addGst(annually);
+
+    const monthlyWithGst = fixRoundingError(Math.round(addGst(monthly)));
+    const annuallyWithGst = fixRoundingError(Math.round(addGst(annually)));
 
     return {
         monthly,
