@@ -44,6 +44,7 @@ export interface ClaimRequest {
     'acceptance_code'?: string;
     'client_number'?: string;
     'attachments'?: ClaimRequestAttachment[];
+    'notes'?: string;
 }
 
 export interface ClaimRequestAttachment {
