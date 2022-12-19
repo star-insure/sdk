@@ -59,6 +59,7 @@ export interface QuoteRequest {
     sold_at?: string;
     sent_at?: string;
     pricing_expires_at?: string;
+    max_policy_starts_at?: string;
     follow_up_at?: string;
 
     // Foreign keys

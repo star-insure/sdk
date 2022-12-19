@@ -15,7 +15,6 @@ export interface QuoteRequestPurchaseOption {
     gst?: number;
     premium_type?: PremiumType;
     policy_starts_at?: string;
-    max_policy_starts_at?: string;
     sold_at?: string;
     is_paid?: boolean;
     payment_frequency?: PaymentFrequency;
