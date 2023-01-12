@@ -59,7 +59,7 @@ export default function RegistrationSearchField({
   function handleChange(
     e: React.SyntheticEvent<HTMLInputElement | HTMLSelectElement>
   ) {
-    if (e.currentTarget.name === 'registration_search') {
+    if (e.currentTarget.name === name) {
       setRego(e.currentTarget.value?.toUpperCase() || '');
     }
 
