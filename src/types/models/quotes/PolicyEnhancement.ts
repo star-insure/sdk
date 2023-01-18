@@ -9,4 +9,5 @@ export interface PolicyEnhancement {
     auto_select?: boolean;
     sold_at?: string;
     purchase_option_id?: QuoteRequestPurchaseOption['id'];
+    key?: string;
 }

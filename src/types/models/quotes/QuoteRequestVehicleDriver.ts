@@ -7,4 +7,5 @@ export interface QuoteRequestVehicleDriver {
     licence?: string;
     licence_other?: string;
     quote_request_vehicle_id?: number;
+    key?: string;
 }

@@ -59,7 +59,6 @@ export default function RegistrationSearchField({
   conditionSelectClassName,
   regoInputClassName,
   searchBtnClassName,
-
 }: Props) {
   const [rego, setRego] = React.useState<string>(initialRegistrationValue);
   const [odo, setOdo] = React.useState<string>('');
