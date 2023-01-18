@@ -77,8 +77,10 @@ export default function FormTester({ populatePurchaseOptions = false }: Props) {
                             licence: 'Other',
                             licence_other: 'None',
                             relationship: 'Child',
+                            key: 'driver-test-key',
                         }
                     ],
+                    key: 'vehicle-test-key',
                 },
             ],
             purchase_options: populatePurchaseOptions ? [
@@ -95,9 +97,10 @@ export default function FormTester({ populatePurchaseOptions = false }: Props) {
                     fsl: 100,
                     sort_order: 1,
                     enhancements: [
-                        { name: 'Test enhancement', premium: 2500, disable_rounding: false, description: 'Test enhancement', auto_select: true },
-                        { name: 'Test enhancement', premium: 5000, disable_rounding: false, description: 'Test enhancement', auto_select: false }
+                        { name: 'Test enhancement', premium: 2500, disable_rounding: false, description: 'Test enhancement', auto_select: true, key: 'enhancement-test-key-1' },
+                        { name: 'Test enhancement', premium: 5000, disable_rounding: false, description: 'Test enhancement', auto_select: false, key: 'enhancement-test-key-2' }
                     ],
+                    key: 'purchase-option-test-key-annual'
                 },
                 {
                     premium_type: 'total-due',
@@ -111,9 +114,10 @@ export default function FormTester({ populatePurchaseOptions = false }: Props) {
                     fsl: 100,
                     sort_order: 2,
                     enhancements: [
-                        { name: 'Test enhancement', premium: 2500, disable_rounding: false, description: 'Test enhancement', auto_select: true },
-                        { name: 'Test enhancement', premium: 5000, disable_rounding: false, description: 'Test enhancement', auto_select: false }
+                        { name: 'Test enhancement', premium: 2500, disable_rounding: false, description: 'Test enhancement', auto_select: true, key: 'enhancement-test-key-3' },
+                        { name: 'Test enhancement', premium: 5000, disable_rounding: false, description: 'Test enhancement', auto_select: false, key: 'enhancement-test-key-4' }
                     ],
+                    key: 'purchase-option-test-key-total-due'
                 }
             ] : [],
         }))
