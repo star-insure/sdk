@@ -1,84 +1,124 @@
-import React from "react";
-import { padStart } from "lodash-es";
+import React from 'react';
+import { calculateAge } from '../../lib';
+import { padStart } from 'lodash';
 
 interface Props {
-    value?: string;
-    onChange: (newValue: string) => void;
+  name?: string;
+  id?: string;
+  onChange: (dateString: string) => void;
+  value?: string;
+  maxYear?: number;
+  showAge?: boolean;
 }
 
-export default function DateOfBirthField({ value, onChange }: Props) {
-    const [dateOfBirth, setDateOfBirth] = React.useState({
-        day: value?.split("-")[2] || '',
-        month: value?.split("-")[1] || '',
-        year: value?.split("-")[0] || '',
-    });
+export default function DateOfBirthField({
+  name = 'dob',
+  id = 'dob',
+  onChange,
+  value,
+  maxYear = 0,
+  showAge = false,
+}: Props) {
+  const dayOptions = [...Array.from(Array(31).keys())].map(value => {
+    return padStart(`${value + 1}`, 2, '0');
+  });
 
-    const dayOptions = [...Array.from(Array(31).keys())].map(value => {
-        return padStart(`${value + 1}`, 2, '0');
-    });
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const monthOptions = [...Array.from(Array(12).keys())].map(value => {
+    return {
+      title: months[value],
+      value: padStart(`${value + 1}`, 2, '0'),
+    };
+  });
 
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const monthOptions = [...Array.from(Array(12).keys())].map(value => {
-        return {
-            title: months[value],
-            value: padStart(`${value + 1}`, 2, '0')
-        }
-    })
+  // Create 100 years of options, subtracting the maximum year if provided
+  const yearOptions = [...Array.from(Array(100).keys())].map(value => {
+    return maxYear ? maxYear - value : new Date().getFullYear() - value;
+  });
 
-    const thisYear = new Date().getFullYear();
-    const yearOptions = [...Array.from(Array(100).keys())].map(value => {
-        return (thisYear - value - 16).toString();
-    });
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) {
+    const { name, value } = e.currentTarget;
 
-    function handleSelectChange(e: React.FormEvent<HTMLSelectElement>) {
-        const { name, value } = e.currentTarget;
+    let y = name.includes('year') ? value : year;
+    let m = name.includes('month') ? value : month;
+    let d = name.includes('day') ? value : day;
 
-        const newDob = {
-            ...dateOfBirth,
-            [name]: value,
-        }
+    onChange(`${y}-${m}-${d}`);
+  }
 
-        // Set local state
-        setDateOfBirth(newDob);
+  const [year, month, day] = value ? value.split('-') : ['', '', ''];
+  const isValidDate =
+    year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
-        // Format the date for the API
-        const formattedDate = `${newDob.year}-${newDob.month}-${newDob.day}`;
-
-        // Call the upstream prop if we have all of the date parts
-        if (Object.values(newDob).every(value => value !== '')) {
-            onChange(formattedDate);
-        } else {
-            // Otherwise, clear the value
-            onChange('');
-        }
-    }
-
-    return (
-        <label className="w-full">
-            <span className="relative mr-auto">
-                <span>Date of birth</span>
-            </span>
-
-            <span className="flex space-x-4 border border-gray-300 rounded-lg mt-1 bg-white">
-                <select name="day" value={dateOfBirth.day} className="flex-grow focus:outline-none border-0" onChange={handleSelectChange} required>
-                    <option value="">Day</option>
-                    {dayOptions.map(option => (
-                        <option key={option} value={option}>{option}</option>
-                    ))}
-                </select>
-                <select name="month" value={dateOfBirth.month} className="flex-grow focus:outline-none border-0" onChange={handleSelectChange} required>
-                    <option value="">Month</option>
-                    {monthOptions.map(option => (
-                        <option key={option.value} value={option.value}>{option.title}</option>
-                    ))}
-                </select>
-                <select name="year" value={dateOfBirth.year} className="flex-grow focus:outline-none border-0" onChange={handleSelectChange} required>
-                    <option value="">Year</option>
-                    {yearOptions.map(option => (
-                        <option key={option} value={option}>{option}</option>
-                    ))}
-                </select>
-            </span>
-        </label>
-    )
+  return (
+    <span className="flex flex-col gap-2">
+      <span className="flex space-x-4 border border-gray-300 rounded-lg bg-white">
+        <select
+          name={`${name}_day`}
+          id={`${id}_day`}
+          value={day}
+          className="flex-grow focus:outline-none border-0"
+          onChange={handleChange}
+          required
+        >
+          <option value="">Day</option>
+          {dayOptions.map(option => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+        <select
+          name={`${name}_month`}
+          id={`${id}_month`}
+          value={month}
+          className="flex-grow focus:outline-none border-0"
+          onChange={handleChange}
+          required
+        >
+          <option value="">Month</option>
+          {monthOptions.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.title}
+            </option>
+          ))}
+        </select>
+        <select
+          name={`${name}_year`}
+          id={`${id}_year`}
+          value={year}
+          className="flex-grow focus:outline-none border-0"
+          onChange={handleChange}
+          required
+        >
+          <option value="">Year</option>
+          {yearOptions.map(option => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </span>
+      {showAge && value && isValidDate && (
+        <span className="font-bold">Age: {calculateAge(value)} years</span>
+      )}
+    </span>
+  );
 }
