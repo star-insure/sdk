@@ -30,6 +30,8 @@ export interface QuoteRequestPurchaseOption {
     enhancements?: PolicyEnhancement[];
     benefits?: PolicyBenefit[];
     benefit_template?: PolicyBenefitTemplate;
+
+    key?: string;
 }
 
 export type PremiumType = 'annual' | 'total-due';

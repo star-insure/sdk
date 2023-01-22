@@ -5,4 +5,5 @@ export interface QuoteRequestReferrer {
     name: string;
     category_id: QuoteRequestReferrerCategory['id'];
     category?: QuoteRequestReferrerCategory;
+    key?: string;
 }

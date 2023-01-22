@@ -29,14 +29,14 @@ export default function MoneyField({ value = 0, onChange, name = 'value', id = '
 
     return (
         <div className={`${className} flex items-center gap-2 pl-4 rounded-md border border-gray-300 transition-all focus-within:border-teal focus-within:outline-none focus-within:ring focus-within:ring-teal focus-within:ring-opacity-50`}>
-            <span className="font-bold">$</span>
+            <span className="font-bold pr-2">$</span>
             <input
                 type="text"
                 name={name}
                 id={id}
                 value={displayValue}
                 onChange={handleChange}
-                className="w-full !focus:outline-none !focus:ring-0 !focus:ring-transparent !focus:ring-opacity-0 !ring-0 !border-0 !transition-none"
+                className="w-full !focus:outline-none !focus:ring-0 !focus:ring-transparent !focus:ring-opacity-0 !ring-0 !border-0 !transition-none !rounded-l-none"
                 required={required}
             />
         </div>

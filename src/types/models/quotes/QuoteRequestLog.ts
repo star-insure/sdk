@@ -8,4 +8,5 @@ export interface QuoteRequestLog {
     user?: User;
     activity_type: string;
     message: string;
+    key?: string;
 }

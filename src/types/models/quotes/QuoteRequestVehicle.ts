@@ -18,4 +18,5 @@ export interface QuoteRequestVehicle {
     is_heavy?: boolean;
     quote_request_id?: string;
     drivers?: QuoteRequestVehicleDriver[];
+    key?: string;
 }

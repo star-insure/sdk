@@ -7,6 +7,7 @@ import {
   VehicleType,
 } from '../../types';
 import { useToast } from '../../lib/toast';
+import cn from 'classnames';
 
 export interface VehicleData extends MotorwebVehicleResponse {
   make: string;
@@ -28,6 +29,11 @@ interface Props {
   showOdometerReadingField?: boolean;
   showConditionField?: boolean;
   initialRegistrationValue?: string;
+  outerClassName?: string;
+  odoInputClassName?: string;
+  conditionSelectClassName?: string;
+  regoInputClassName?: string;
+  searchBtnClassName?: string;
 }
 
 export const conditionOptions = [
@@ -48,6 +54,11 @@ export default function RegistrationSearchField({
   showOdometerReadingField = false,
   showConditionField = false,
   onChange,
+  outerClassName,
+  odoInputClassName,
+  conditionSelectClassName,
+  regoInputClassName,
+  searchBtnClassName,
 }: Props) {
   const [rego, setRego] = React.useState<string>(initialRegistrationValue);
   const [odo, setOdo] = React.useState<string>('');
@@ -154,7 +165,7 @@ export default function RegistrationSearchField({
 
   return (
     <div className="w-full flex flex-col">
-      <div className="w-full flex flex-wrap gap-3 bg-gray-100 rounded-md p-3">
+      <div className={cn(outerClassName, "w-full flex flex-wrap gap-3 bg-gray-100 rounded-md p-3")}>
         {showOdometerReadingField ||
           (showConditionField && (
             <div className="w-full grid grid-cols-2 gap-3">
@@ -168,11 +179,9 @@ export default function RegistrationSearchField({
                     id="odo_search"
                     value={odo}
                     onChange={handleChange}
-                    className={`transition-all ${
-                      status === 'processing'
-                        ? 'pointer-events-none opacity-50'
-                        : ''
-                    }`}
+                    className={cn(odoInputClassName, "transition-all", {
+                        'pointer-events-none opacity-50': status === 'processing',
+                    })}
                     disabled={status === 'processing'}
                   />
                 </label>
@@ -186,11 +195,9 @@ export default function RegistrationSearchField({
                     id="condition_search"
                     value={condition}
                     onChange={handleChange}
-                    className={`transition-all ${
-                      status === 'processing'
-                        ? 'pointer-events-none opacity-50'
-                        : ''
-                    }`}
+                    className={cn(conditionSelectClassName, "transition-all", {
+                      'pointer-events-none opacity-50': status === 'processing',
+                    })}
                     disabled={status === 'processing'}
                   >
                     {conditionOptions.map(conditionOption => (
@@ -210,9 +217,9 @@ export default function RegistrationSearchField({
           id={name}
           value={rego}
           onChange={handleChange}
-          className={`flex-grow transition-all ${
-            status === 'processing' ? 'pointer-events-none opacity-50' : ''
-          }`}
+          className={cn(regoInputClassName, "flex-grow transition-all", {
+            'pointer-events-none opacity-50': status === 'processing',
+          })}
           disabled={status === 'processing'}
         />
 
@@ -221,7 +228,7 @@ export default function RegistrationSearchField({
           type="button"
           onClick={handleSearch}
           disabled={status === 'processing'}
-          className={`bg-teal px-4 py-3 rounded-md transition-all`}
+          className={cn(searchBtnClassName, "bg-teal px-4 py-3 rounded-md transition-all")}
         >
           <span className="sr-only">Search</span>
           <svg
