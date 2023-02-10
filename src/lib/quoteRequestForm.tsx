@@ -1,13 +1,16 @@
 import React from 'react';
-import { InertiaFormProps, useForm } from "@inertiajs/inertia-react";
+import { useForm } from "@inertiajs/react";
+import { InertiaFormProps } from "@inertiajs/react/types/useForm";
 import type { QuoteRequest } from '../types';
 
+type QuoteRequestForm = QuoteRequest & Record<string, any>;
+
 interface QuoteRequestFormContextInterface {
-    form?: InertiaFormProps<QuoteRequest>;
+    form?: InertiaFormProps<QuoteRequestForm>;
     handleChange?: (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => void;
 }
 
-export const initialData: QuoteRequest = {
+export const initialData: QuoteRequestForm = {
     id: undefined,
     status: 'new',
     source: 'phone',
@@ -71,7 +74,7 @@ export const initialData: QuoteRequest = {
 export const QuoteRequestFormContext = React.createContext<QuoteRequestFormContextInterface>({});
 
 export function QuoteRequestFormProvider({ children }: { children: React.ReactNode }) {
-    const form = useForm<QuoteRequest>(initialData);
+    const form = useForm(initialData);
 
     /**
      * Handle the change event for all form inputs

@@ -1,4 +1,4 @@
-import { addGst } from ".";
+import { addGst } from "./money";
 import type { PolicyEnhancement, QuoteRequestPurchaseOption } from "../types";
 
 interface CalculationArguments {

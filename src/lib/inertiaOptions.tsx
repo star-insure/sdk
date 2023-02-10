@@ -1,4 +1,4 @@
-import type { VisitOptions } from '@inertiajs/inertia/types';
+import type { VisitOptions } from '@inertiajs/core';
 import { useToast } from './toast';
 
 interface Options {

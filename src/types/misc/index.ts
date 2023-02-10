@@ -1,5 +1,3 @@
-export * from './inertia';
-
 export type FormStatus = 'idle' | 'processing' | 'success' | 'error';
 
 export interface Toast {
