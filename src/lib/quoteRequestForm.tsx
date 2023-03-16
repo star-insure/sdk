@@ -69,6 +69,7 @@ export const initialData: QuoteRequestForm = {
     referrer_category_id: undefined,
     pricing_expires_at: undefined,
     follow_up_at: undefined,
+    is_follow_up_required: true,
 }
 
 export const QuoteRequestFormContext = React.createContext<QuoteRequestFormContextInterface>({});
