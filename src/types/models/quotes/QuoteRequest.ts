@@ -100,4 +100,6 @@ export interface QuoteRequest {
         documentation_pdf: string;
     },
     blacklist_entry?: BlacklistEntry;
+
+    is_follow_up_required: boolean;
 }
