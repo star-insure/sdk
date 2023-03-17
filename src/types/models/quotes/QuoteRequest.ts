@@ -51,6 +51,7 @@ export interface QuoteRequest {
     length_of_insurance?: string;
     theme?: string;
     notes?: string;
+    purchase_option_summary?: string;
 
     // Dates
     created_at?: string;
