@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
+import cn from 'classnames';
 
 interface Props {
   children: React.ReactNode;
   className?: string;
   textAlign?: 'left' | 'right' | 'center';
   sort?: string;
+  condensed?: true;
 }
 
 export default function TableHeader({
@@ -13,6 +15,7 @@ export default function TableHeader({
   className = '',
   sort,
   textAlign = 'left',
+  condensed,
 }: Props) {
   const [sortLink, setSortLink] = React.useState<string>('');
 
@@ -39,7 +42,9 @@ export default function TableHeader({
     'text-left justify-between';
 
   return (
-    <th className={`${className} py-3.5 px-3 text-sm font-semibold text-left`}>
+    <th className={cn(className, 'py-3.5 px-3 text-sm font-semibold text-left', {
+      'w-0 whitespace-nowrap': condensed,
+    })}>
       <div className={`flex items-center gap-3 ${textAlignClass}`}>
         {children}
         {sort && (
