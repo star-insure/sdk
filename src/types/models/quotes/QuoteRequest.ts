@@ -5,7 +5,7 @@ import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
 import { QuoteRequestLog } from "./QuoteRequestLog";
-import { QuoteRequestPurchaseOption } from "./QuoteRequestPurchaseOption";
+import { QuoteRequestPurchaseOption, QuoteRequestPurchaseOptionSummary } from "./QuoteRequestPurchaseOption";
 import { QuoteRequestReferrer } from "./QuoteRequestReferrer";
 import { QuoteRequestReferrerCategory } from "./QuoteRequestReferrerCategory";
 import { QuoteRequestVehicle } from "./QuoteRequestVehicle";
@@ -51,7 +51,7 @@ export interface QuoteRequest {
     length_of_insurance?: string;
     theme?: string;
     notes?: string;
-    purchase_option_summary?: string;
+    purchase_option_summaries?: QuoteRequestPurchaseOptionSummary[];
 
     // Dates
     created_at?: string;

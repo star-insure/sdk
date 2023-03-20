@@ -42,3 +42,9 @@ export interface LevelOfInsurance {
     id: number;
     name: string;
 }
+
+export interface QuoteRequestPurchaseOptionSummary {
+    id?: number;
+    description?: string;
+    premium?: number;
+}
