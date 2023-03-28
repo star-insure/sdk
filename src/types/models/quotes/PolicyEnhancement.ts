@@ -5,6 +5,7 @@ export interface PolicyEnhancement {
     name?: string;
     description?: string;
     premium?: number;
+    monthly_premium?: number;
     disable_rounding?: boolean;
     auto_select?: boolean;
     sold_at?: string;
