@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import cn from 'classnames';
 
-interface Props {
+interface Props extends React.DetailedHTMLProps<React.ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement> {
   children: React.ReactNode;
   className?: string;
   textAlign?: 'left' | 'right' | 'center';
@@ -16,6 +16,7 @@ export default function TableHeader({
   sort,
   textAlign = 'left',
   condensed,
+  ...props
 }: Props) {
   const [sortLink, setSortLink] = React.useState<string>('');
 
@@ -42,7 +43,7 @@ export default function TableHeader({
     'text-left justify-between';
 
   return (
-    <th className={cn(className, 'py-3.5 px-3 text-sm font-semibold text-left', {
+    <th {...props} className={cn(className, 'py-3.5 px-3 text-sm font-semibold text-left', {
       'w-0 whitespace-nowrap': condensed,
     })}>
       <div className={`flex items-center gap-3 ${textAlignClass}`}>
