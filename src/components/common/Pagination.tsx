@@ -6,10 +6,14 @@ interface Props {
     className?: string;
     meta: Meta;
     showPerPageSelector?: boolean;
+    defaultValue?: number;
 }
 
-export default function Pagination({ meta, className, showPerPageSelector = false }: Props) {
+export default function Pagination({ meta, className, showPerPageSelector = false, defaultValue }: Props) {
     const { current_page, total, per_page } = meta;
+
+      const perPageValue = defaultValue ?? per_page;
+
     const page_count = Math.ceil(total / per_page);
 
     function getNextPageLink() {
@@ -57,7 +61,7 @@ export default function Pagination({ meta, className, showPerPageSelector = fals
                 <div className="flex gap-6 items-center">
                     <p>Page {current_page} of {page_count}</p>
                     {showPerPageSelector ? (
-                        <select value={per_page} onChange={handlePerPageChange}>
+                        <select value={perPageValue} onChange={handlePerPageChange}>
                             <option value="10">10 per page</option>
                             <option value="25">25 per page</option>
                             <option value="50">50 per page</option>
