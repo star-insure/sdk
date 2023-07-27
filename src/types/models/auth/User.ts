@@ -2,6 +2,7 @@ import { Group } from ".";
 
 export interface User {
     id: number;
+    oracle_user_id?: string;
     name: string;
     email: string;
     mobile?: string;
