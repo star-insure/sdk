@@ -1,3 +1,4 @@
+import { Payment } from "../payments";
 import { BlacklistEntry } from "./Blacklist";
 import { Club } from "./Club";
 import { InformationRequest } from "./InformationRequest";
@@ -101,6 +102,6 @@ export interface QuoteRequest {
         documentation_pdf: string;
     },
     blacklist_entry?: BlacklistEntry;
-
     is_follow_up_required: boolean;
+    payments?: Payment[];
 }
