@@ -32,6 +32,7 @@ export interface Payment {
     card_token: string | null;
     user_id: User['id'] | null;
     return_url: string | null;
+    reason?: string;
     user?: User;
     quoteRequest?: QuoteRequest;
 }
