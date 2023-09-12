@@ -7,7 +7,9 @@ export interface QuoteRequestOptions {
     insurance_companies: SimpleOption[];
     level_of_insurance_options: SimpleOption[];
     policy_description_options: SimpleOption[];
-    referrer_category_options: SimpleOption[];
+    referrer_category_options: (SimpleOption & { 
+        is_public: boolean
+    })[];
     relationship_options: SimpleOption[];
     storage_location_options: SimpleOption[];
     vehicle_usage_options: {
@@ -20,6 +22,7 @@ export interface QuoteRequestOptions {
         id: number;
         name: string;
         category_id: number;
+        is_public: boolean;
     }[];
     policy_benefit_options: {
         id: number;
