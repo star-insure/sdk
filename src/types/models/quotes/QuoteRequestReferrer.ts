@@ -6,4 +6,5 @@ export interface QuoteRequestReferrer {
     category_id: QuoteRequestReferrerCategory['id'];
     category?: QuoteRequestReferrerCategory;
     key?: string;
+    is_public: boolean;
 }
