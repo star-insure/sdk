@@ -53,11 +53,16 @@ export interface QuoteRequest {
     theme?: string;
     notes?: string;
     purchase_option_summaries?: QuoteRequestPurchaseOptionSummary[];
+    secondary_first_name?: string;
+    secondary_last_name?: string;
+    secondary_licence?: string;
+    secondary_licence_other?: string;
 
     // Dates
     created_at?: string;
     updated_at?: string;
     dob?: string;
+    secondary_dob?: string;
     sold_at?: string;
     sent_at?: string;
     pricing_expires_at?: string;
