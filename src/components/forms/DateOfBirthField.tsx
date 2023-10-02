@@ -9,6 +9,7 @@ interface Props {
   value?: string;
   maxYear?: number;
   showAge?: boolean;
+  isRequired?: boolean;
 }
 
 export default function DateOfBirthField({
@@ -18,6 +19,7 @@ export default function DateOfBirthField({
   value,
   maxYear = 0,
   showAge = false,
+  isRequired = true
 }: Props) {
   const dayOptions = [...Array.from(Array(31).keys())].map(value => {
     return padStart(`${value + 1}`, 2, '0');
@@ -76,7 +78,7 @@ export default function DateOfBirthField({
           value={day}
           className="flex-grow focus:outline-none border-0"
           onChange={handleChange}
-          required
+          required={isRequired}
         >
           <option value="">Day</option>
           {dayOptions.map(option => (
@@ -91,7 +93,7 @@ export default function DateOfBirthField({
           value={month}
           className="flex-grow focus:outline-none border-0"
           onChange={handleChange}
-          required
+          required={isRequired}
         >
           <option value="">Month</option>
           {monthOptions.map(option => (
@@ -106,7 +108,7 @@ export default function DateOfBirthField({
           value={year}
           className="flex-grow focus:outline-none border-0"
           onChange={handleChange}
-          required
+          required={isRequired}
         >
           <option value="">Year</option>
           {yearOptions.map(option => (

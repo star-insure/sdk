@@ -27,6 +27,11 @@ export const initialData: QuoteRequestForm = {
     club_membership_number: '',
     length_of_insurance: '',
     dob: '',
+    secondary_first_name: '',
+    secondary_last_name: '',
+    secondary_licence: '',
+    secondary_licence_other: '',
+    secondary_dob: '',
     club_id: undefined,
     street_address: {
         address: '',

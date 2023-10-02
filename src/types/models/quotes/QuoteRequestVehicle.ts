@@ -19,4 +19,5 @@ export interface QuoteRequestVehicle {
     quote_request_id?: string;
     drivers?: QuoteRequestVehicleDriver[];
     key?: string;
+    main_driver?: string;
 }
