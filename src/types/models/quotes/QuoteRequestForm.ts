@@ -88,6 +88,7 @@ export interface QuoteRequestForm {
         value?: number;
         storage_location?: string;
         is_heavy?: boolean;
+        main_driver?: string;
         drivers: {
             id?: number;
             first_name?: string;
