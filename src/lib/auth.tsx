@@ -14,5 +14,15 @@ interface AppPage extends Page {
 export function useAuth(): AuthContext {
     const { props } = usePage() as AppPage;
 
-    return props.auth;
+    /**
+     * Check if the user has permission to perform the given ability.
+     */
+    function can(ability: string): boolean {
+        return props.auth.permissions.includes(ability);
+    }
+
+    return {
+        ...props.auth,
+        can,
+    };
 }
