@@ -1,5 +1,3 @@
-import { User, Group } from '../models';
-
 export type UserContext =
   | 'staff'
   | 'broker'
@@ -7,10 +5,32 @@ export type UserContext =
   | 'security'
   | 'customer';
 
+type AuthUser = {
+  id: number;
+  name: string;
+  email: string;
+  is_group_admin: boolean;
+  umbrella_filter?: string;
+  oracle_user_id?: string;
+  groups: AuthGroup[];
+};
+
+type AuthGroup = {
+  id: number;
+  name: string;
+  code: string;
+  role: AuthRole;
+};
+
+type AuthRole = {
+  name: string;
+  context: string;
+};
+
 export interface AuthContext {
-  user?: User;
-  context?: UserContext;
-  group?: Group;
+  user?: AuthUser;
+  context: UserContext;
+  group?: AuthGroup;
   permissions: string[];
   is_app?: boolean;
   can: (permission: string) => boolean;
