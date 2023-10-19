@@ -1,4 +1,5 @@
 export type UserContext =
+  | 'administrator'
   | 'staff'
   | 'broker'
   | 'agent'
