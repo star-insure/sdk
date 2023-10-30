@@ -11,6 +11,7 @@ interface Props {
   children: React.ReactNode;
   disabled?: boolean;
   as?: 'link' | 'button' | 'a';
+  small?: boolean;
 }
 
 export default function Button({
@@ -23,9 +24,11 @@ export default function Button({
   status = 'default',
   disabled = false,
   as,
+  small = false,
 }: Props) {
-  const baseClasses =
-    'font-black inline-flex items-center gap-3 justify-center text-white text-center px-5 py-2 rounded-md min-w-[120px] transition-all hover:opacity-75';
+  const baseClasses = small
+    ? 'font-bold text-sm inline-flex items-center gap-3 justify-center text-white text-center px-3 py-1 rounded-md min-w-[80px] transition-all hover:opacity-75'
+    : 'font-black inline-flex items-center gap-3 justify-center text-white text-center px-5 py-2 rounded-md min-w-[120px] transition-all hover:opacity-75';
 
   const statusClass =
     (status === 'primary' && 'bg-teal') ||
