@@ -1,0 +1,318 @@
+import { router } from "@inertiajs/react";
+import { format, subYears } from "date-fns";
+import React from "react";
+import { FilterOption, FilterValue } from "../../types";
+import Select from 'react-select';
+import { HiChevronDown } from "react-icons/hi2";
+import Dropdown from "./Dropdown";
+import cn from 'classnames';
+import { Button } from "../common";
+
+export function FilterItem({ filter }: { filter: FilterOption, path?: string }) {
+    const [isOpen, setOpen] = React.useState<boolean>(false);
+    const [selected, setSelected] = React.useState<string[]>([]);
+
+    const [selectedOptions, setSelectedOptions] = React.useState<FilterValue[]>([]); // Filter type: select
+    const hasFilters = selected.length > 0;
+
+    // Populate values on load
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const search = new URLSearchParams(window.location.search);
+
+            if (filter.type === 'date') {
+                const fromDate = search.get(`${filter.name}[from]`);
+                const toDate = search.get(`${filter.name}[to]`);
+                if (fromDate && toDate) {
+                    setSelected([fromDate, toDate]);
+                }
+            } else if (filter.type === 'greaterThan') {
+                const selectedFromUrl = search.getAll(`${filter.name}-GTE`);
+                if (selectedFromUrl) {
+                    setSelected(selectedFromUrl);
+                }
+            } else if (filter.type === 'scope') {
+                const selectedFromUrl = search.getAll(`scope${filter.name}`);
+                if (selectedFromUrl) {
+                    setSelected(selectedFromUrl);
+                }
+            } else if (filter.type === 'select') {
+                const selectedFromUrl = search.getAll(`${filter.name}[]`);
+                if (selectedFromUrl) {
+                    setSelected(selectedFromUrl);
+                    const selectedOptions = filter.options && filter.options.filter(item => selectedFromUrl.includes(item.value.toString()));
+                    selectedOptions && setSelectedOptions(selectedOptions);
+                }
+            } else {
+                const selectedFromUrl = search.getAll(`${filter.name}[]`);
+                if (selectedFromUrl) {
+                    setSelected(selectedFromUrl);
+                }
+            }
+        }
+    }, []);
+
+    function handleInput(e: React.SyntheticEvent<HTMLInputElement>) {
+        const { value, checked } = e.currentTarget;
+
+        if (checked) {
+            setSelected((curr) => [...curr, value]);
+        } else {
+            setSelected(selected.filter((f) => f !== value));
+        }
+    }
+
+    function handleDateSelect(e: React.SyntheticEvent<HTMLInputElement>) {
+        const { name, value } = e.currentTarget;
+
+        // First value in "selected" will be the "from", second will be the "to"
+        if (name.includes('from')) {
+            return setSelected([value]);
+        }
+
+        if (name.includes('to')) {
+            // Make sure we have a "from" value first
+            if (selected.length === 0) {
+                // We'll default to a year ago if nothing entered
+                return setSelected([format(subYears(new Date(), 1), 'yyyy-MM-dd'), value]);
+            }
+            return setSelected([selected[0], value]);
+        }
+
+        return setSelected([]);
+    }
+
+    /**
+     * Handle Select for FilterType: Select
+     */
+    const handleSelectedOptions = (options: FilterValue[] | any) => {
+        setSelectedOptions(options);
+        const selectedValues = options.map((option : FilterValue) => option.value.toString());
+
+        if (selectedValues.length > 0) {
+            setSelected(selectedValues);
+        } else {
+            setSelected([]);
+        }
+    };
+
+    /**
+     * For Filter Select
+     * Removes the Clear Button
+     */
+    function NullComponent() {
+        return null;
+    }
+
+    function handleSelect(e: React.SyntheticEvent<HTMLSelectElement>) {
+        const { value } = e.currentTarget;
+
+        if (value) {
+            setSelected([value]);
+        } else {
+            setSelected([]);
+        }
+    }
+
+    function handleApply(e: React.FormEvent) {
+        e.preventDefault();
+
+        const search = new URLSearchParams(window.location.search);
+
+        // Reset the page in the query
+        search.set('page', '1');
+
+        if (filter.type === 'date') {
+            const [from, to] = selected;
+
+            search.set(`${filter.name}[from]`, from ?? format(new Date(), 'yyyy-MM-dd'));
+            search.set(`${filter.name}[to]`, to ?? format(new Date(), 'yyyy-MM-dd'));
+        } else if (filter.type === 'greaterThan') {
+            search.delete(`${filter.name}-GTE`);
+
+            if (selected.length > 0) {
+                search.set(`${filter.name}-GTE`, selected[0]);
+            }
+        } else if (filter.type === 'scope') {
+            search.delete(`${filter.name}`);
+            if (selected.length > 0) {
+                search.set(`scope${filter.name}`, selected[0]);
+            }
+        } else {
+            // Clear this filter first
+            search.delete(`${filter.name}[]`);
+
+            // Apply the filters to the query string
+            selected.forEach((selectedValue, i) => {
+                // Fall back to option equality filters
+                search.append(`${filter.name}[]`, selectedValue);
+            });
+        }
+
+        // Fetch new data
+        router.get(`${window.location.pathname}?${search.toString()}`);
+    }
+
+    function handleClear() {
+        const search = new URLSearchParams(window.location.search);
+
+        // Reset the page in the query
+        search.set('page', '1');
+
+        // Clear this filter
+        if (filter.type === 'date') {
+            search.delete(`${filter.name}[from]`);
+            search.delete(`${filter.name}[to]`);
+        } else if (filter.type === 'greaterThan') {
+            search.delete(`${filter.name}-GTE`);
+        } else if (filter.type === 'scope') {
+            search.delete(`scope${filter.name}`);
+        } else {
+            search.delete(`${filter.name}[]`);
+        }
+
+        // Fetch new data
+        router.get(`${window.location.pathname}?${search.toString()}`);
+    }
+
+    function handleClick(force?: boolean) {
+        if (typeof force === 'boolean') {
+            return setOpen(force);
+        }
+
+        setOpen(!isOpen);
+    }
+
+    return (
+        <Dropdown onClose={() => setOpen(!open)} active={isOpen}>
+            <Dropdown.Title
+                onClick={() => handleClick()}
+                className={cn(
+                    'flex rounded-2xl border hover:border-teal bg-gray-600 min-w-[90px] px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-teal transition-colors',
+                    {
+                        '!bg-teal border-teal': hasFilters,
+                    }
+                )}
+            >
+                <p className="whitespace-nowrap">{filter.label}</p>
+                <HiChevronDown />
+            </Dropdown.Title>
+
+            <Dropdown.Content
+                className={`mt-2 flex max-h-[350px] min-w-[200px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
+                onSubmit={handleApply}
+            >
+                <div className="flex flex-col items-start gap-1">
+                    {(!filter.type || filter.type === 'options') &&
+                        filter.options?.map((option, i) => (
+                            <div className="checkbox text-sm " key={`${option.label}-${i}`}>
+                                <input
+                                    type="checkbox"
+                                    name={filter.name}
+                                    id={option.label}
+                                    value={option.value.toString()}
+                                    checked={selected.includes(option.value.toString())}
+                                    onChange={handleInput}
+                                />
+                                <label className="whitespace-nowrap" htmlFor={option.label}>
+                                    {option.label}
+                                </label>
+                            </div>
+                        ))}
+                    {filter.type === 'greaterThan' && filter.options && (
+                        <label className="mb-2 w-full">
+                            <div className="text-sm">Greater than or equal to</div>
+                            <select
+                                name={filter.name}
+                                id={filter.label}
+                                value={selected[0]}
+                                onChange={handleSelect}
+                                className="w-full"
+                            >
+                                <option value="">Select option</option>
+                                {filter.options?.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+                    )}
+                    {filter.type === 'scope' && filter.options && (
+                        <label className="mb-2 w-full">
+                            <select
+                                name={filter.name}
+                                id={filter.label}
+                                value={selected[0]}
+                                onChange={handleSelect}
+                                className="w-full"
+                            >
+                                <option value="">Select option</option>
+                                {filter.options?.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+                    )}
+                    {filter.type === 'date' && (
+                        <div className="mb-2 flex flex-col gap-4">
+                            <label className="text-xs">
+                                From
+                                <input
+                                    type="date"
+                                    name={`${filter.name}[from]`}
+                                    id={`${filter.name}[from]`}
+                                    onChange={handleDateSelect}
+                                    value={selected[0] ?? ''}
+                                />
+                            </label>
+                            <label className="text-xs">
+                                To
+                                <input
+                                    type="date"
+                                    name={`${filter.name}[to]`}
+                                    id={`${filter.name}[to]`}
+                                    onChange={handleDateSelect}
+                                    value={selected[1] ?? ''}
+                                />
+                            </label>
+                        </div>
+                    )}
+                    {filter.type === 'select' && filter.options && (
+                        <div className="w-full">
+                            <Select
+                                isMulti
+                                options={filter.options}
+                                className="basic-multi-select text-sm w-64 !transition-none"
+                                classNamePrefix="select"
+                                onChange={handleSelectedOptions}
+                                components={{
+                                    ClearIndicator: NullComponent, // Hide the ClearIndicator (X button) -> exits filter when clicked
+                                }}
+                                value={selectedOptions}
+                                theme={(theme) => ({
+                                    ...theme,
+                                    colors: {
+                                        ...theme.colors,
+                                        primary25: 'rgb(111, 199, 182)',
+                                        primary: 'rgb(111, 199, 182)',
+                                    },
+                                })}
+                            />
+                        </div>
+                    )}
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button type="button" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" onClick={handleClear}>
+                        Clear
+                    </Button>
+                    <Button type="submit" status="primary" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none">
+                        Apply
+                    </Button>
+                </div>
+            </Dropdown.Content>
+        </Dropdown>
+    );
+}
