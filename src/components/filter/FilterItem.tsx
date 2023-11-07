@@ -143,7 +143,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
             search.delete(`${filter.name}[]`);
 
             // Apply the filters to the query string
-            selected.forEach((selectedValue, i) => {
+            selected.forEach((selectedValue) => {
                 // Fall back to option equality filters
                 search.append(`${filter.name}[]`, selectedValue);
             });
