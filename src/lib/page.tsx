@@ -7,7 +7,7 @@ import { AuthContext, Breadcrumb, Environment } from '../types';
  */
 type CustomPageProps = {
     env: Environment;
-    breadcrumbs: Breadcrumb[];
+    breadcrumbs?: Breadcrumb[];
     links: Record<string, string>;
     access_token?: string;
     impersonate_id?: number;

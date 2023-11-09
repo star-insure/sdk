@@ -12,6 +12,7 @@ export function BackButton({ back }: { back?: string | boolean }) {
      */
     React.useEffect(() => {
         if (typeof window !== 'undefined') {
+            if (!breadcrumbs) return;
             // Set back button URL
             if (back && typeof back === 'boolean') {
                 // If we haven't provided a path as a prop, use the last breadcrumb that's not the current one
