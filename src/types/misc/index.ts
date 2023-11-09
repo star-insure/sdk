@@ -30,6 +30,7 @@ export type TPageHeaderAction = {
     target?: '_self' | '_blank';
     onClick?: Function;
     type?: 'button' | 'submit';
+    hidden?: boolean;
 };
 
 export type Environment = 'production' | 'staging' | 'testing' | 'local';

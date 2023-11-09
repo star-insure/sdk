@@ -133,6 +133,10 @@ export default function PageHeader({
         checkScroll();
     }
 
+    const filteredActions = React.useMemo(() => {
+        return actions.filter(action => !action.hidden);
+    }, [actions]);
+
     return (
         <section className={cn('col-span-full max-w-full rounded-lg bg-white p-2 shadow', className)}>
             <div className={cn('grid grid-cols-[auto_1fr_auto] min-h-[60px] rounded gap-4 bg-gray-100 p-3', innerClassName)}>
@@ -160,11 +164,11 @@ export default function PageHeader({
                     )}
                 </div>
 
-                {actions.length > 0 && (
+                {filteredActions.length > 0 && (
                     <div className="flex items-center gap-3">
                         {filterOptions.length > 0 && <div className="w-[1px] h-full bg-gray-300" />}
                         <nav className="flex items-center gap-2">
-                            {actions.map((action) => (
+                            {filteredActions.map((action) => (
                                 <Action key={`${action.title}-${action.as}-${action.href}`} {...action} />
                             ))}
                         </nav>
