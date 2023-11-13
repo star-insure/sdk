@@ -2,8 +2,9 @@ import { Link } from "@inertiajs/react";
 import React from "react";
 import { HiArrowLeft } from "react-icons/hi2";
 import { usePage } from "../../lib/page";
+import cn from 'classnames';
 
-export function BackButton({ back }: { back?: string | boolean }) {
+export function BackButton({ back, className }: { back?: string | boolean; className?: string; }) {
     const [backUrl, setBackUrl] = React.useState<string | undefined>(typeof back === 'string' ? back : undefined);
     const { breadcrumbs } = usePage().props;
 
@@ -29,7 +30,7 @@ export function BackButton({ back }: { back?: string | boolean }) {
     }, [breadcrumbs]);
 
     return (
-        <Link href={backUrl || '/'} className="hover:text-teal transition-all p-1 -mr-1">
+        <Link href={backUrl || '/'} className={cn(className, 'flex items-center justify-center hover:text-teal transition-all')}>
             <HiArrowLeft className="h-5 w-5 stroke-[1.25]" />
         </Link>
     );

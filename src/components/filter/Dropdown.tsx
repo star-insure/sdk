@@ -1,18 +1,15 @@
 import React from "react";
 
-import { createHost, createSlot } from 'create-slots';
 import { useClickOutside } from "../../lib";
 
-const DropdownTitle = createSlot('button');
-const DropdownContent = createSlot('form');
-
 type Props = {
-    children: React.ReactNode;
     onClose: Function;
     active: boolean;
+    title: React.ReactNode;
+    children: React.ReactNode;
 }
 
-function Dropdown({ children, onClose, active }: Props) {
+function Dropdown({ onClose, active, title, children }: Props) {
     const ref = React.useRef<HTMLDivElement | null>(null);
     const innerRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -30,22 +27,17 @@ function Dropdown({ children, onClose, active }: Props) {
         innerCurrent.style.setProperty('left', `${pos?.left}px`)
     }, [active, ref.current, innerRef.current]);
 
-    return createHost(children, (Slots) => {
-        return (
-            <div ref={ref} className="static inline-block">
-                {Slots.get(DropdownTitle)}
+    return (
+        <div ref={ref} className="static inline-block">
+            {title}
 
-                {active && (
-                    <div ref={innerRef} className="absolute children z-10 flex flex-col">
-                        {Slots.get(DropdownContent)}
-                    </div>
-                )}
-            </div>
-        )
-    });
+            {active && (
+                <div ref={innerRef} className="absolute children z-10 flex flex-col">
+                    {children}
+                </div>
+            )}
+        </div>
+    );
 };
-
-Dropdown.Title = DropdownTitle;
-Dropdown.Content = DropdownContent;
 
 export default Dropdown;

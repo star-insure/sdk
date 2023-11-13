@@ -184,21 +184,20 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
     }
 
     return (
-        <Dropdown onClose={() => setOpen(!open)} active={isOpen}>
-            <Dropdown.Title
+        <Dropdown onClose={() => setOpen(!open)} active={isOpen} title={
+            <div
                 onClick={() => handleClick()}
                 className={cn(
-                    'flex rounded-2xl border hover:border-teal bg-gray-600 min-w-[90px] px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-teal transition-colors',
+                    'flex rounded-2xl border hover:border-teal bg-gray-600 px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-teal transition-colors',
                     {
                         '!bg-teal border-teal': hasFilters,
                     }
-                )}
-            >
+            )}>
                 <p className="whitespace-nowrap">{filter.label}</p>
                 <HiChevronDown />
-            </Dropdown.Title>
-
-            <Dropdown.Content
+            </div>
+        }>
+            <form
                 className={`mt-2 flex max-h-[350px] min-w-[200px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
                 onSubmit={handleApply}
             >
@@ -312,7 +311,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                         Apply
                     </Button>
                 </div>
-            </Dropdown.Content>
+            </form>
         </Dropdown>
     );
 }

@@ -138,17 +138,19 @@ export default function PageHeader({
     }, [actions]);
 
     return (
-        <section className={cn('col-span-full max-w-full rounded-lg bg-white p-2 shadow', className)}>
-            <div className={cn('grid grid-cols-[auto_1fr_auto] min-h-[60px] rounded gap-4 bg-gray-100 p-3', innerClassName)}>
-                <div className="mr-auto flex items-center gap-4">
-                    {back && <BackButton back={back} />}
-
+        <section className={cn('col-span-full flex items-center gap-2 max-w-full rounded-lg bg-white p-2 shadow', className)}>
+            {back && (
+                <BackButton back={back} className="bg-gray-100 h-[60px] w-[60px] rounded" />
+            )}
+            
+            <div className={cn('w-full grid grid-cols-[auto_1fr_auto] h-[60px] rounded bg-gray-100 p-3 gap-4', innerClassName)}>
+                <div className="mr-auto flex items-center gap-4 ml-1">
                     {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} />}
 
                     {!isSearchActive && <h1 className="text-base font-bold">{title}</h1>}
                 </div>
 
-                <div className="flex ml-auto items-center max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl gap-2 h-full min-w-0">
+                <div className="flex items-center ml-auto gap-2 h-full min-w-0 max-w-full">
                     {filterOptions.length > 0 && (
                         <>
                             <button onClick={handleClear} className="p-1.5 hover:text-red-500"><HiXMark className="w-5 h-5 stroke-[1.25]" /></button>
@@ -165,7 +167,7 @@ export default function PageHeader({
                 </div>
 
                 {filteredActions.length > 0 && (
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 bg-gray-100">
                         {filterOptions.length > 0 && <div className="w-[1px] h-full bg-gray-300" />}
                         <nav className="flex items-center gap-2">
                             {filteredActions.map((action) => (

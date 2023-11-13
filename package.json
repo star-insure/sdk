@@ -60,19 +60,21 @@
         "size-limit": "^7.0.8",
         "tsdx": "^0.14.1",
         "tslib": "^2.4.0",
-        "typescript": "^3.9.10"
+        "typescript": "^3.9.10",
+        "react": "^18.2.0"
     },
     "dependencies": {
         "@headlessui/react": "^1.6.3",
         "@inertiajs/react": "^1.0.0",
         "classnames": "^2.3.2",
-        "create-slots": "^0.6.1",
         "date-fns": "^2.28.0",
         "lodash-es": "^4.17.21",
-        "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^4.11.0",
         "react-select": "^5.8.0",
         "uuid": "^9.0.0"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
     }
 }
