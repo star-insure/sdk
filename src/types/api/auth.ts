@@ -14,6 +14,7 @@ type AuthUser = {
   umbrella_filter?: string;
   oracle_user_id?: string;
   groups: AuthGroup[];
+  phone_extension?: number;
 };
 
 type AuthGroup = {

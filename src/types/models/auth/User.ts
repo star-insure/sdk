@@ -12,4 +12,5 @@ export interface User {
   umbrella_filter?: string;
   groups?: Group[];
   permissions?: string[];
+  phone_extension?: number;
 }
