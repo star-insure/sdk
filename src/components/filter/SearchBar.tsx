@@ -24,6 +24,23 @@ export default function SearchBar({ search, active, onActive, placeholder }: { s
                 onActive(true);
             }
         }
+
+        const listener = (e: KeyboardEvent) => {
+            if (e.key === '/') {
+                e.preventDefault();
+                onActive(true);
+            }
+
+            if (e.key === 'Escape') {
+                onActive(false);
+            }
+        };
+
+        window.addEventListener('keydown', listener);
+
+        return () => {
+            window.removeEventListener('keydown', listener);
+        };
     }, []);
 
     /**
@@ -62,7 +79,7 @@ export default function SearchBar({ search, active, onActive, placeholder }: { s
                     title="Open Search Bar"
                     type="button"
                     onClick={() => onActive(true)}
-                    className="flex items-center justify-center rounded-full hover:text-teal p-1 transition-colors hover:bg-gray-100"
+                    className="flex items-center justify-center rounded-full hover:text-teal p-1 hover:bg-gray-100"
                 >
                     <HiMagnifyingGlass className="h-5 w-5 stroke-[1.25]" />
                 </button>
