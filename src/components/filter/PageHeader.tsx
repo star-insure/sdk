@@ -146,9 +146,10 @@ export default function PageHeader({
             <div className={cn('w-full grid grid-cols-[auto_1fr_auto] h-[60px] rounded bg-gray-100 p-3 gap-4', innerClassName)}>
                 <button
                     type="button"
+                    disabled={!search}
                     onClick={() => setSearchActive(true)}
-                    className={cn('mr-auto flex items-center gap-4 transition-colors pr-6 pl-1', {
-                        'hover:text-teal': !isSearchActive,
+                    className={cn('mr-auto flex items-center gap-4 transition-colors pr-6 pl-1 disabled:opacity-100', {
+                        'hover:text-teal': search && !isSearchActive,
                     }
                 )}>
                     {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} />}
