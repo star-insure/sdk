@@ -8,7 +8,7 @@ export default function Action({ title, href, as = 'Link', target = '_self', typ
 
     if (as === 'Link' && href) {
         return (
-            <Link className={className} href={href}>
+            <Link className={className} href={href} onClick={() => onClick()}>
                 {title}
             </Link>
         );
@@ -16,7 +16,7 @@ export default function Action({ title, href, as = 'Link', target = '_self', typ
 
     if (as === 'a' && href) {
         return (
-            <a className={className} target={target} href={href}>
+            <a className={className} target={target} href={href} onClick={() => onClick()}>
                 {title}
             </a>
         );
