@@ -8,6 +8,7 @@ type QuoteRequestForm = QuoteRequest & Record<string, any>;
 interface QuoteRequestFormContextInterface {
     form?: InertiaFormProps<QuoteRequestForm>;
     handleChange?: (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => void;
+    clear: () => void;
 }
 
 export const initialData: QuoteRequestForm = {
@@ -77,10 +78,10 @@ export const initialData: QuoteRequestForm = {
     is_follow_up_required: true,
 }
 
-export const QuoteRequestFormContext = React.createContext<QuoteRequestFormContextInterface>({});
+export const QuoteRequestFormContext = React.createContext<QuoteRequestFormContextInterface>({ clear: () => null });
 
 export function QuoteRequestFormProvider({ children }: { children: React.ReactNode }) {
-    const form = useForm(initialData);
+    const form = useForm({ ...initialData });
 
     /**
      * Handle the change event for all form inputs
@@ -118,8 +119,12 @@ export function QuoteRequestFormProvider({ children }: { children: React.ReactNo
         }));
     }
 
+    function clear() {
+        form.setData({ ...initialData });
+    }
+
     return (
-        <QuoteRequestFormContext.Provider value={{ form, handleChange }}>
+        <QuoteRequestFormContext.Provider value={{ form, handleChange, clear }}>
             {children}
         </QuoteRequestFormContext.Provider>
     );
