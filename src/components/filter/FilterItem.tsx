@@ -307,7 +307,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                     <Button type="button" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" onClick={handleClear} small>
                         Clear
                     </Button>
-                    <Button type="submit" status="primary" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none">
+                    <Button type="submit" status="primary" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" small>
                         Apply
                     </Button>
                 </div>
