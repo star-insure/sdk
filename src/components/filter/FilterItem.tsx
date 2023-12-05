@@ -304,7 +304,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                     )}
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button type="button" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" onClick={handleClear}>
+                    <Button type="button" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" onClick={handleClear} small>
                         Clear
                     </Button>
                     <Button type="submit" status="primary" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none">
