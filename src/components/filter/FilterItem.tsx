@@ -188,7 +188,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
             <div
                 onClick={() => handleClick()}
                 className={cn(
-                    'flex rounded-2xl border hover:border-teal bg-gray-600 px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-teal transition-colors',
+                    'flex rounded-2xl border hover:cursor-pointer hover:border-teal bg-gray-600 px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-teal transition-colors',
                     {
                         '!bg-teal border-teal': hasFilters,
                     }
