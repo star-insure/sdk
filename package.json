@@ -2,7 +2,7 @@
     "name": "@star-insure/sdk",
     "description": "The SDK for Star Insure client apps with shared helper functions and TypeScript definitions.",
     "author": "alexclark_nz",
-    "version": "3.2.5",
+    "version": "3.2.6",
     "license": "MIT",
     "repository": {
         "type": "git",
