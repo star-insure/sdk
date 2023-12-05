@@ -3,8 +3,15 @@ import React from "react";
 import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
 import { useClickOutside } from "../../lib";
 
+interface Props {
+    search?: string;
+    active: boolean;
+    onActive: Function;
+    placeholder?: string;
+    focusSearchShortcut?: boolean;
+}
 
-export default function SearchBar({ search, active, onActive, placeholder }: { search?: string, active: boolean, onActive: Function, placeholder?: string }) {
+export default function SearchBar({ search, active, onActive, placeholder, focusSearchShortcut = false }: Props) {
     const [query, setQuery] = React.useState<string>('');
 
     const searchRef = React.useRef<HTMLDivElement | null>(null);
@@ -26,7 +33,7 @@ export default function SearchBar({ search, active, onActive, placeholder }: { s
         }
 
         const listener = (e: KeyboardEvent) => {
-            if (e.key === '/') {
+            if (focusSearchShortcut && e.key === '/') {
                 e.preventDefault();
                 onActive(true);
             }
@@ -41,7 +48,7 @@ export default function SearchBar({ search, active, onActive, placeholder }: { s
         return () => {
             window.removeEventListener('keydown', listener);
         };
-    }, []);
+    }, [focusSearchShortcut]);
 
     /**
      * Minimise the search bar on click outside if there's no search query
@@ -119,4 +126,3 @@ export default function SearchBar({ search, active, onActive, placeholder }: { s
         </div>
     );
 }
-

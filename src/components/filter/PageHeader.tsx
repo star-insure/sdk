@@ -17,6 +17,7 @@ interface Props {
     actions?: TPageHeaderAction[];
     backText?: string;
     filterOptions?: FilterOption[];
+    focusSearchShortcut?: boolean;
 }
 
 export default function PageHeader({
@@ -27,6 +28,7 @@ export default function PageHeader({
     back = true,
     actions = [],
     filterOptions = [],
+    focusSearchShortcut = false,
 }: Props) {
     const [isSearchActive, setSearchActive] = React.useState<boolean>(false);
     const scrollContainerRef = React.useRef<HTMLDivElement | null>(null);
@@ -76,7 +78,7 @@ export default function PageHeader({
 
         current.addEventListener('scroll', listener);
         document.addEventListener('mousemove', mouseListener)
-        
+
         return () => {
             current.removeEventListener('scroll', listener);
             document.removeEventListener('mousemove', mouseListener)
@@ -142,7 +144,7 @@ export default function PageHeader({
             {back && (
                 <BackButton back={back} className="bg-gray-100 h-[60px] w-[60px] rounded" />
             )}
-            
+
             <div className={cn('w-full grid grid-cols-[auto_1fr_auto] h-[60px] rounded bg-gray-100 p-3 gap-4', innerClassName)}>
                 <button
                     type="button"
@@ -152,7 +154,7 @@ export default function PageHeader({
                         'hover:text-teal': search && !isSearchActive,
                     }
                 )}>
-                    {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} />}
+                    {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} focusSearchShortcut={focusSearchShortcut} />}
 
                     {!isSearchActive && <h1 className="text-base font-bold">{title}</h1>}
                 </button>
@@ -161,7 +163,7 @@ export default function PageHeader({
                     {filterOptions.length > 0 && (
                         <>
                             <button onClick={handleClear} className="p-1.5 hover:text-red-500"><HiXMark className="w-5 h-5 stroke-[1.25]" /></button>
-                            
+
                             {hasScroll && <HiChevronLeft onClick={clickLeft} className="w-5 h-5 text-gray-400 stroke-[1.25]" />}
                             <div ref={scrollContainerRef} className="flex items-center h-full w-full gap-3 overflow-x-scroll hide-scroll">
                                 {filterOptions.map(filter => (
