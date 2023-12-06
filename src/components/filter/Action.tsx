@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Action({ title, href, as = 'Link', target = '_self', type, onClick = () => {} }: TPageHeaderAction) {
     const className =
-        'bg-white rounded-full font-bold px-4 py-1.5 text-sm whitespace-nowrap hover:bg-gray-100 hover:border-gray-300 transition-colors border border-gray-200';
+        'bg-white rounded-full font-bold px-4 py-1.5 text-sm whitespace-nowrap hover:bg-gray-100 hover:border-gray-400 transition-colors border border-gray-300';
 
     if (as === 'Link' && href) {
         return (
