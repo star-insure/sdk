@@ -198,7 +198,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
             </div>
         }>
             <form
-                className={`mt-2 flex max-h-[350px] min-w-[200px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
+                className={`mt-2 flex max-h-[350px] min-w-[200px] max-w-[220px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
                 onSubmit={handleApply}
             >
                 <div className="flex flex-col items-start gap-1">
@@ -213,7 +213,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                                     checked={selected.includes(option.value.toString())}
                                     onChange={handleInput}
                                 />
-                                <label className="whitespace-nowrap" htmlFor={option.label}>
+                                <label className="leading-tight" htmlFor={option.label}>
                                     {option.label}
                                 </label>
                             </div>
