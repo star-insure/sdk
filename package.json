@@ -57,11 +57,11 @@
         "@types/uuid": "^8.3.4",
         "husky": "^8.0.1",
         "np": "^7.6.1",
+        "react": "^18.2.0",
         "size-limit": "^7.0.8",
         "tsdx": "^0.14.1",
         "tslib": "^2.4.0",
-        "typescript": "^3.9.10",
-        "react": "^18.2.0"
+        "typescript": "^3.9.10"
     },
     "dependencies": {
         "@headlessui/react": "^1.6.3",
@@ -72,6 +72,7 @@
         "react-dom": "^18.2.0",
         "react-icons": "^4.11.0",
         "react-select": "^5.8.0",
+        "react-tooltip": "^5.25.0",
         "uuid": "^9.0.0"
     },
     "peerDependencies": {
