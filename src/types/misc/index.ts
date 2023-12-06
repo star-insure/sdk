@@ -31,6 +31,7 @@ export type TPageHeaderAction = {
     onClick?: Function;
     type?: 'button' | 'submit';
     hidden?: boolean;
+    shortcutKey?: string;
 };
 
 export type Environment = 'production' | 'staging' | 'testing' | 'local';
