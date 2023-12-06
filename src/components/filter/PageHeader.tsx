@@ -156,7 +156,7 @@ export default function PageHeader({
                 )}>
                     {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} focusSearchShortcut={focusSearchShortcut} />}
 
-                    {!isSearchActive && <h1 className="text-base font-bold">{title}</h1>}
+                    {!isSearchActive && <h1 className="text-base font-black">{title}</h1>}
                 </button>
 
                 <div className="flex items-center ml-auto gap-2 h-full min-w-0 max-w-full">
