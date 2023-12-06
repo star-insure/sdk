@@ -30,7 +30,11 @@ export default function Action({ title, href, as = 'Link', target = '_self', typ
             // Check if Ctrl (Windows) or Cmd (Mac) key is pressed
             const isCtrlOrCmdPressed = (e.ctrlKey || e.metaKey);
 
-            if (e.key === shortcutKey && isCtrlOrCmdPressed) {
+            // Check if the focus is on an input element or inside a form
+            const isInInput = e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement || e.target instanceof HTMLSelectElement;
+            const isInForm = (e.target instanceof Element && e.target.closest('form'));
+
+            if (isCtrlOrCmdPressed && !isInInput && !isInForm && e.key === shortcutKey) {
                 e.preventDefault();
                 runAction();
             }
