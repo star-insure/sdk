@@ -29,6 +29,14 @@ export interface QuoteRequestUserGroup {
     name: string;
 }
 
+export interface Automatch {
+    client_number: string;
+    id: number;
+    matched_by: QuoteRequestAutomatch;
+    matched_by_value: string;
+    quote_request_id: string;
+}
+
 export interface QuoteRequest {
     id?: string;
     status?: QuoteRequestStatus;
@@ -109,4 +117,5 @@ export interface QuoteRequest {
     blacklist_entry?: BlacklistEntry;
     is_follow_up_required: boolean;
     payments?: Payment[];
+    automatches?: Automatch[];
 }
