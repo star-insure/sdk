@@ -6,7 +6,7 @@ import { Lead } from "./Lead";
 import { PostalAddress } from "./PostalAddress";
 import { QuoteRequestDeclaration } from "./QuoteRequestDeclaration";
 import { QuoteRequestLog } from "./QuoteRequestLog";
-import { QuoteRequestPurchaseOption, QuoteRequestPurchaseOptionSummary } from "./QuoteRequestPurchaseOption";
+import { QuoteRequestPurchaseOption } from "./QuoteRequestPurchaseOption";
 import { QuoteRequestReferrer } from "./QuoteRequestReferrer";
 import { QuoteRequestReferrerCategory } from "./QuoteRequestReferrerCategory";
 import { QuoteRequestVehicle } from "./QuoteRequestVehicle";
@@ -27,6 +27,14 @@ export interface QuoteRequestUser {
 export interface QuoteRequestUserGroup {
     id: number;
     name: string;
+}
+
+export interface Automatch {
+    client_number: string;
+    id: number;
+    matched_by: QuoteRequestAutomatch;
+    matched_by_value: string;
+    quote_request_id: string;
 }
 
 export interface QuoteRequest {
@@ -109,4 +117,5 @@ export interface QuoteRequest {
     blacklist_entry?: BlacklistEntry;
     is_follow_up_required: boolean;
     payments?: Payment[];
+    automatches?: Automatch[];
 }
