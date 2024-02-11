@@ -19,7 +19,7 @@ npm run test
 ## Publishing to NPM
 Suggest that you use [np](https://github.com/sindresorhus/np) for publishing.
 
-From the command line just run:
+From the command line just run (you'll need Node version 18+ running):
 ```
-np
+npm run publish
 ```
