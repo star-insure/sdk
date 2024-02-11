@@ -52,7 +52,7 @@ export interface QuoteRequest {
     length_of_insurance?: string;
     theme?: string;
     notes?: string;
-    purchase_option_summaries?: QuoteRequestPurchaseOptionSummary[];
+    purchase_options_summary?: string;
     secondary_first_name?: string;
     secondary_last_name?: string;
     secondary_licence?: string;
