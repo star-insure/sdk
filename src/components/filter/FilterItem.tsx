@@ -198,7 +198,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
             </div>
         }>
             <form
-                className={`mt-2 flex max-h-[350px] min-w-[200px] max-w-[220px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
+                className={`mt-2 flex max-h-[350px] min-w-[200px] max-w-[260px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
                 onSubmit={handleApply}
             >
                 <div className="flex flex-col items-start gap-1">
@@ -284,7 +284,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                             <Select
                                 isMulti
                                 options={filter.options}
-                                className="basic-multi-select text-sm w-64 !transition-none"
+                                className="basic-multi-select text-xs w-52 !transition-none"
                                 classNamePrefix="select"
                                 onChange={handleSelectedOptions}
                                 components={{
