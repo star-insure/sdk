@@ -54,10 +54,7 @@ export function formatDate(date: Date|string|null|undefined, overrideFormatStrin
         return format(nativelyParsedDate, formatString);
     }
 
-    // All attempts failed, log error in debug environment and return empty string
-    if (process.env.NODE_ENV === 'development') {
-        console.error(`Date format not recognized: ${date}`);
-    }
+    console.error(`Date format not recognized: ${date}`);
     return '';
 }
 
@@ -111,9 +108,6 @@ export function formatDateTime(dateTime: Date|string|null|undefined, overrideFor
         return format(nativelyParsedDateTime, formatString);
     }
 
-    // All attempts failed, log error in debug environment and return empty string
-    if (process.env.NODE_ENV === 'development') {
-        console.error(`Date format not recognized: ${dateTime}`);
-    }
+    console.error(`Date format not recognized: ${dateTime}`);
     return '';
 }
