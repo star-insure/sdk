@@ -54,7 +54,6 @@ export function formatDate(date: Date|string|null|undefined, overrideFormatStrin
         return format(nativelyParsedDate, formatString);
     }
 
-    console.error(`Date format not recognized: ${date}`);
     return '';
 }
 
@@ -108,6 +107,5 @@ export function formatDateTime(dateTime: Date|string|null|undefined, overrideFor
         return format(nativelyParsedDateTime, formatString);
     }
 
-    console.error(`Date format not recognized: ${dateTime}`);
     return '';
 }
