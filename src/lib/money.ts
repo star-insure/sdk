@@ -52,7 +52,11 @@ export function gstCalc(input: number|string): {
 /**
  * Formats a value nicely
  */
- export function formatMoneyNumerals(value: string|number, decimals: number = 2): string {
+export function formatMoney(value: string|number|null|undefined, decimals: number = 2): string {
+    if (value === null || value === undefined) {
+        return '';
+    }
+
     let toFormat = value;
     if (typeof value === 'string') {
         toFormat = value.replace(/[^\d.-]/g, '')
@@ -62,20 +66,6 @@ export function gstCalc(input: number|string): {
         minimumFractionDigits: decimals,
         maximumFractionDigits: decimals,
     });
-}
-
-/**
- * Formats a value nicely
- */
-export function formatMoney(value: string|number|null|undefined, decimals: number = 2): string {
-    if (value === null || value === undefined) {
-        return '';
-    }
-
-    return `$${formatMoneyNumerals(value, decimals)}`
-
-        // If the value is negative, we need to move the negative sign to the front
-        .replace('$-', '- $');
 }
 
 /**
