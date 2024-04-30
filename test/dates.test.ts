@@ -133,26 +133,14 @@ describe('dateTime', () => {
 
     it('can format ISO dateTime string to Star Insure standard format', () => {
         const dateObj = '2024-03-23T20:00:00.000Z';
-
-        const base = 240; // minutes from dateObj to 12AM next day
-        const tzOffset = new Date().getTimezoneOffset(); // minutes from UTC to local time
-        const totalMinutes = (tzOffset + base) * -1; // minutes from 12AM to dateObj in local time
-        const hh = Math.floor(totalMinutes / 60).toString().padStart(2, '0');
-        const mm = (totalMinutes % 60).toString().padStart(2, '0');
-        const expected = `24/03/2024 ${hh}:${mm}`;
+        const expected = `24/03/2024 09:00`;
 
         expect(formatDateTime(dateObj)).toEqual(expected);
     });
 
     it('can format UTC dateTime string to Star Insure standard format', () => {
         const dateObj = 'Sat, 23 Mar 2024 20:00:00 GMT';
-
-        const base = 240; // minutes from dateObj to 12AM next day
-        const tzOffset = new Date().getTimezoneOffset(); // minutes from UTC to local time
-        const totalMinutes = (tzOffset + base) * -1; // minutes from 12AM to dateObj in local time
-        const hh = Math.floor(totalMinutes / 60).toString().padStart(2, '0');
-        const mm = (totalMinutes % 60).toString().padStart(2, '0');
-        const expected = `24/03/2024 ${hh}:${mm}`;
+        const expected = `24/03/2024 09:00`;
 
         expect(formatDateTime(dateObj)).toEqual(expected);
     });
