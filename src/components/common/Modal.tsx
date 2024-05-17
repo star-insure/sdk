@@ -7,10 +7,11 @@ interface Props {
     isActive?: boolean;
     onClose: () => void;
     title?: string;
+    width?: string;
     className?: string;
 }
 
-export default function Modal({ children, isActive = false, onClose, title, className = '' }: Props) {
+export default function Modal({ children, isActive = false, onClose, title, width = '', className = '' }: Props) {
     return (
         <Transition.Root show={isActive} as={Fragment}>
             <Dialog as="div" className="fixed z-[110] inset-0 overflow-y-auto" onClose={onClose}>
@@ -36,7 +37,7 @@ export default function Modal({ children, isActive = false, onClose, title, clas
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
-                        <div className={`${className} w-full align-start inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:p-6`}>
+                        <div className={`${className} w-full align-start inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-7xl sm:p-6 ${width}`}>
                             <div className={`flex gap-4 mb-4 text-asphalt ${title ? 'border-b-2 border-asphalt pb-4' : ''}`}>
                                 {title && <h3 className="font-black text-lg">{title}</h3>}
                                 <button type="button" onClick={onClose} className="ml-auto transition-all hover:opacity-50">
