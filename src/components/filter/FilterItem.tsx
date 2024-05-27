@@ -303,7 +303,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                         </div>
                     )}
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 py-4 mt-4 -bottom-4 sticky bg-white">
                     <Button type="button" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" onClick={handleClear} small>
                         Clear
                     </Button>
