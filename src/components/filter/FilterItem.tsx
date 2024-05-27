@@ -198,10 +198,10 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
             </div>
         }>
             <form
-                className={`mt-2 flex max-h-[350px] min-w-[200px] max-w-[260px] flex-col gap-2 rounded-md border border-gray-300 bg-white p-4 shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
+                className={`mt-2 flex max-h-[350px] min-w-[200px] max-w-[260px] flex-col gap-2 rounded-md border border-gray-300 bg-white shadow-lg ${ filter.type && filter.type === 'select' ? '' : 'overflow-y-scroll'}`}
                 onSubmit={handleApply}
             >
-                <div className="flex flex-col items-start gap-1">
+                <div className="flex flex-col items-start gap-1 p-4">
                     {(!filter.type || filter.type === 'options') &&
                         filter.options?.map((option, i) => (
                             <div className="checkbox text-sm " key={`${option.label}-${i}`}>
@@ -226,7 +226,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                                 id={filter.label}
                                 value={selected[0]}
                                 onChange={handleSelect}
-                                className="w-full"
+                                className="!p-2 text-sm w-full"
                             >
                                 <option value="">Select option</option>
                                 {filter.options?.map((option) => (
@@ -244,7 +244,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                                 id={filter.label}
                                 value={selected[0]}
                                 onChange={handleSelect}
-                                className="w-full"
+                                className="!p-2 text-sm w-full"
                             >
                                 <option value="">Select option</option>
                                 {filter.options?.map((option) => (
@@ -256,8 +256,8 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                         </label>
                     )}
                     {filter.type === 'date' && (
-                        <div className="mb-2 flex flex-col gap-4">
-                            <label className="text-xs">
+                        <div className="mb-2 flex flex-col gap-4 w-full">
+                            <label className="text-xs w-full">
                                 From
                                 <input
                                     type="date"
@@ -265,9 +265,10 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                                     id={`${filter.name}[from]`}
                                     onChange={handleDateSelect}
                                     value={selected[0] ?? ''}
+                                    className="!p-2 text-sm w-full"
                                 />
                             </label>
-                            <label className="text-xs">
+                            <label className="text-xs w-full">
                                 To
                                 <input
                                     type="date"
@@ -275,6 +276,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                                     id={`${filter.name}[to]`}
                                     onChange={handleDateSelect}
                                     value={selected[1] ?? ''}
+                                    className="!p-2 text-sm w-full"
                                 />
                             </label>
                         </div>
@@ -303,7 +305,7 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                         </div>
                     )}
                 </div>
-                <div className="flex items-center gap-2 py-4 mt-4 -bottom-4 sticky bg-white">
+                <div className="bg-gray-100 border-t border-gray-200 flex items-center gap-2 p-4 bottom-0 sticky">
                     <Button type="button" className="!min-w-[0px] flex-grow !px-2 text-sm !transition-none" onClick={handleClear} small>
                         Clear
                     </Button>
