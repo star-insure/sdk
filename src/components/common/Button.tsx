@@ -27,8 +27,8 @@ export default function Button({
   small = false,
 }: Props) {
   const baseClasses = small
-    ? 'font-bold text-sm inline-flex items-center gap-3 justify-center text-white text-center px-3 py-1 rounded min-w-[80px] transition-all hover:opacity-75'
-    : 'font-black inline-flex items-center gap-3 justify-center text-white text-center px-5 py-2 rounded-md min-w-[120px] transition-all hover:opacity-75';
+    ? 'font-bold text-sm inline-flex items-center gap-3 justify-center text-white text-center px-3 py-1 rounded min-w-[80px] transition-all hover:brightness-110'
+    : 'font-black inline-flex items-center gap-3 justify-center text-white text-center px-5 py-2 rounded-md min-w-[120px] transition-all hover:brightness-110';
 
   const statusClass =
     (status === 'primary' && 'bg-teal') ||
