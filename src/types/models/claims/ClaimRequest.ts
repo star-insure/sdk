@@ -93,7 +93,7 @@ export interface DamageClaimRequest extends ClaimRequest {
     'additional_information_details'?: string;
     'accident_location'?: string;
     'accident_suburb'?: string;
-    'accident_happened_at'?: string;
+    'loss_happened_at'?: string;
     'accident_speed'?: string;
     'impact_speed'?: string;
     'road_surface'?: string;
@@ -178,7 +178,7 @@ export interface GlassClaimRequest extends ClaimRequest {
     'vehicle_model'?: string;
     'vehicle_year'?: string|number;
     'accident_location'?: string;
-    'accident_happened_at'?: string;
+    'loss_happened_at'?: string;
     'accident_description'?: string;
     'repairer_name'?: string;
     'repairer_phone'?: string;
@@ -290,7 +290,7 @@ export interface TheftClaimRequest extends ClaimRequest {
     'vehicle_ran_poorly_details'?: string;
     // Theft details
     'theft_details'?: string;
-    'theft_happened_on'?: string;
+    'loss_happened_at'?: string;
     'theft_discovered_at'?: string;
     'last_seen_at'?: string;
     'vehicle_last_used_by'?: string;
