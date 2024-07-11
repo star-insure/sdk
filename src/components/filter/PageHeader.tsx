@@ -18,6 +18,7 @@ interface Props {
     backText?: string;
     filterOptions?: FilterOption[];
     focusSearchShortcut?: boolean;
+    children?: React.ReactNode;
 }
 
 export default function PageHeader({
@@ -29,11 +30,23 @@ export default function PageHeader({
     actions = [],
     filterOptions = [],
     focusSearchShortcut = false,
+    children
 }: Props) {
     const [isSearchActive, setSearchActive] = React.useState<boolean>(false);
     const scrollContainerRef = React.useRef<HTMLDivElement | null>(null);
 
     const [overScroll, setOverScroll] = React.useState<boolean>(false);
+
+    const actionChildren: React.ReactNode[] = [];
+
+    // Categorize children based on their type
+    React.Children.forEach(children, (child) => {
+        if (React.isValidElement(child)) {
+            if (child.type === PageHeader.Action) {
+                actionChildren.push(child);
+            }
+        }
+    });
 
     React.useEffect(() => {
         const current = scrollContainerRef.current;
@@ -145,7 +158,7 @@ export default function PageHeader({
                 <BackButton back={back} className="bg-gray-100 h-[60px] w-[60px] rounded" />
             )}
 
-            <div className={cn('w-full grid grid-cols-[auto_1fr_auto] h-[60px] rounded bg-gray-100 p-3 gap-4', innerClassName)}>
+            <div className={cn('w-full grid grid-cols-[auto_1fr_auto_auto] h-[60px] rounded bg-gray-100 p-3 gap-4', innerClassName)}>
                 <button
                     type="button"
                     disabled={!search}
@@ -185,7 +198,15 @@ export default function PageHeader({
                         </nav>
                     </div>
                 )}
+                {actionChildren && (
+                    <div className="flex items-center gap-3 bg-gray-100">
+                        {actionChildren}
+                    </div>
+                )}
             </div>
         </section>
     );
 }
+
+// Subcomponents
+PageHeader.Action = ({ children }: {children: React.ReactNode}) => <div>{children}</div>;
