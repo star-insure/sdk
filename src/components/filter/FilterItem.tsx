@@ -114,6 +114,16 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
         }
     }
 
+    function handleText(e: React.SyntheticEvent<HTMLInputElement>) {
+        const { value } = e.currentTarget;
+
+        if (value) {
+            setSelected([value]);
+        } else {
+            setSelected([]);
+        }
+    }
+
     function handleApply(e: React.FormEvent) {
         e.preventDefault();
 
@@ -301,6 +311,18 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                                         primary: 'rgb(111, 199, 182)',
                                     },
                                 })}
+                            />
+                        </div>
+                    )}
+                    {filter.type === 'text' && (
+                        <div className={'w-full'}>
+                            <input
+                                type="text"
+                                name={filter.name}
+                                placeholder={filter.label}
+                                value={selected[0] ?? ''}
+                                onChange={handleText}
+                                className="!p-2 text-sm w-full"
                             />
                         </div>
                     )}
