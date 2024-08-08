@@ -5,6 +5,7 @@ export interface QuoteRequestPurchaseOption {
     id?: number;
     quote_request_id?: string;
     level_of_insurance_id?: number;
+    policy_number: string;
     sort_order?: number;
     description?: string;
     premium?: number;
