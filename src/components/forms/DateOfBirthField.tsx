@@ -71,12 +71,17 @@ export default function DateOfBirthField({
 
   return (
     <span className="flex flex-row gap-2">
-      <span className="flex sm:w-full md:space-x-4 border border-gray-300 rounded-lg bg-white">
+      <span className="flex !sm:w-full border border-gray-300 rounded-lg bg-white">
         <select
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0 !md:padding-right: 2.5rem !sm:padding-right: 1rem"
+          className="flex-grow focus:outline-none border-0
+            padding-left: 0.5rem !important
+            background-position: top 8px right 5px, center right 14px !important
+            lg:padding-rigth: 2.5rem !important
+            md:padding-right: 1.5rem !important
+            sm:padding-right: 1rem !important"
           onChange={handleChange}
           required={isRequired}
         >
@@ -91,7 +96,12 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0 !md:padding-right: 2.5rem !sm:padding-right: 1rem"
+          className="flex-grow focus:outline-none border-0
+            padding-left: 0.5rem !important
+            background-position: top 8px right 5px, center right 14px !important
+            lg:padding-rigth: 2.5rem !important
+            md:padding-right: 1.5rem !important
+            sm:padding-right: 1rem !important"
           onChange={handleChange}
           required={isRequired}
         >
@@ -106,7 +116,12 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0 !md:padding-right: 2.5rem !sm:padding-right: 1rem"
+          className="flex-grow focus:outline-none border-0
+            padding-left: 0.5rem !important
+            background-position: top 8px right 5px, center right 14px !important
+            lg:padding-rigth: 2.5rem !important
+            md:padding-right: 1.5rem !important
+            sm:padding-right: 1rem !important"
           onChange={handleChange}
           required={isRequired}
         >
