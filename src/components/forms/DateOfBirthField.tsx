@@ -71,17 +71,16 @@ export default function DateOfBirthField({
 
   return (
     <span className="flex flex-row gap-2">
-      <span className="flex !sm:w-full border border-gray-300 rounded-lg bg-white">
+      <span className="flex w-full border border-gray-300 rounded-lg bg-white">
         <select
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
           className="flex-grow focus:outline-none border-0
-            padding-left: 0.5rem !important
-            background-position: top 8px right 5px, center right 14px !important
-            lg:padding-rigth: 2.5rem !important
-            md:padding-right: 1.5rem !important
-            sm:padding-right: 1rem !important"
+            pl-2 !bg-[top_8px_right_5px,_center_right_14px]
+            lg:pr-10 !bg-[top_8px_right_5px,_center_right_14px]
+            md:pr-6 !bg-[top_8px_right_5px,_center_right_14px]
+            sm:pr-4 !bg-[top_8px_right_5px,_center_right_14px]"
           onChange={handleChange}
           required={isRequired}
         >
@@ -97,11 +96,10 @@ export default function DateOfBirthField({
           id={`${id}_month`}
           value={month}
           className="flex-grow focus:outline-none border-0
-            padding-left: 0.5rem !important
-            background-position: top 8px right 5px, center right 14px !important
-            lg:padding-rigth: 2.5rem !important
-            md:padding-right: 1.5rem !important
-            sm:padding-right: 1rem !important"
+            pl-2 !bg-[top_8px_right_5px,_center_right_14px]
+            lg:pr-10 !bg-[top_8px_right_5px,_center_right_14px]
+            md:pr-6 !bg-[top_8px_right_5px,_center_right_14px]
+            sm:pr-4 !bg-[top_8px_right_5px,_center_right_14px]"
           onChange={handleChange}
           required={isRequired}
         >
@@ -117,11 +115,10 @@ export default function DateOfBirthField({
           id={`${id}_year`}
           value={year}
           className="flex-grow focus:outline-none border-0
-            padding-left: 0.5rem !important
-            background-position: top 8px right 5px, center right 14px !important
-            lg:padding-rigth: 2.5rem !important
-            md:padding-right: 1.5rem !important
-            sm:padding-right: 1rem !important"
+            pl-2 !bg-[top_8px_right_5px,_center_right_14px]
+            lg:pr-10 !bg-[top_8px_right_5px,_center_right_14px]
+            md:pr-6 !bg-[top_8px_right_5px,_center_right_14px]
+            sm:pr-4 !bg-[top_8px_right_5px,_center_right_14px]"
           onChange={handleChange}
           required={isRequired}
         >
