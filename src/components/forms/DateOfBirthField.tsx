@@ -70,13 +70,13 @@ export default function DateOfBirthField({
     year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
   return (
-    <span className="flex flex-col gap-2">
-      <span className="flex space-x-4 border border-gray-300 rounded-lg bg-white">
+    <span className="flex flex-row gap-2">
+      <span className="flex w-full md:space-x-4 border border-gray-300 rounded-lg bg-white">
         <select
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0"
+          className="flex-grow focus:outline-none border-0 !md:pr-10 !sm:pr-0"
           onChange={handleChange}
           required={isRequired}
         >
@@ -91,7 +91,7 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0"
+          className="flex-grow focus:outline-none border-0 !md:pr-10 !sm:pr-0"
           onChange={handleChange}
           required={isRequired}
         >
@@ -106,7 +106,7 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0"
+          className="flex-grow focus:outline-none border-0 !md:pr-10 !sm:pr-0"
           onChange={handleChange}
           required={isRequired}
         >
