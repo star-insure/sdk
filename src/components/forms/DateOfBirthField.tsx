@@ -74,7 +74,7 @@ export default function DateOfBirthField({
   };
 
   return (
-    <span className="flex flex-row gap-2">
+    <span className="flex flex-col gap-2">
       <span className="flex w-full border border-gray-300 rounded-lg bg-white">
         <select
           name={`${name}_day`}
@@ -112,7 +112,7 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0 pl-2 pr-4 sm:pl-2 md:pl-2 lg:pl-4 sm:pr-4 md:pr-6"
+          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 xs:pr-4 sm:pr-4 md:pr-6"
           onChange={handleChange}
           style={style}
           required={isRequired}
