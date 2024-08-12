@@ -69,6 +69,10 @@ export default function DateOfBirthField({
   const isValidDate =
     year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
+  const style = {
+    backgroundPosition: 'top 8px right 5px, center right 14px',
+  };
+
   return (
     <span className="flex flex-row gap-2">
       <span className="flex w-full border border-gray-300 rounded-lg bg-white">
@@ -76,11 +80,8 @@ export default function DateOfBirthField({
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0
-            pl-2 !bg-[top_8px_right_5px,_center_right_14px]
-            lg:pr-10 !bg-[top_8px_right_5px,_center_right_14px]
-            md:pr-6 !bg-[top_8px_right_5px,_center_right_14px]
-            sm:pr-4 !bg-[top_8px_right_5px,_center_right_14px]"
+          className="flex-grow focus:outline-none border-0 pl-2 lg:pr-10 md:pr-6 sm:pr-4"
+          style={style}
           onChange={handleChange}
           required={isRequired}
         >
@@ -95,12 +96,9 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0
-            pl-2 !bg-[top_8px_right_5px,_center_right_14px]
-            lg:pr-10 !bg-[top_8px_right_5px,_center_right_14px]
-            md:pr-6 !bg-[top_8px_right_5px,_center_right_14px]
-            sm:pr-4 !bg-[top_8px_right_5px,_center_right_14px]"
+          className="flex-grow focus:outline-none border-0 pl-2 lg:pr-10 md:pr-6 sm:pr-4"
           onChange={handleChange}
+          style={style}
           required={isRequired}
         >
           <option value="">Month</option>
@@ -114,12 +112,9 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0
-            pl-2 !bg-[top_8px_right_5px,_center_right_14px]
-            lg:pr-10 !bg-[top_8px_right_5px,_center_right_14px]
-            md:pr-6 !bg-[top_8px_right_5px,_center_right_14px]
-            sm:pr-4 !bg-[top_8px_right_5px,_center_right_14px]"
+          className="flex-grow focus:outline-none border-0 pl-2 lg:pr-10 md:pr-6 sm:pr-4"
           onChange={handleChange}
+          style={style}
           required={isRequired}
         >
           <option value="">Year</option>
