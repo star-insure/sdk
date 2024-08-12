@@ -69,10 +69,6 @@ export default function DateOfBirthField({
   const isValidDate =
     year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
-  const style = {
-    backgroundPosition: 'top 10px right 3px, center right 10px',
-  };
-
   return (
     <span className="flex flex-col gap-2">
       <span className="flex w-full border border-gray-300 rounded-lg bg-white">
@@ -80,8 +76,7 @@ export default function DateOfBirthField({
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 !mr-[3px] xs:pr-4 sm:pr-4 md:pr-6"
-          style={style}
+          className="flex-grow focus:outline-none border-0 !mr-[3px]"
           onChange={handleChange}
           required={isRequired}
         >
@@ -96,9 +91,8 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 !mr-[3px] xs:pr-4 sm:pr-4 md:pr-6"
+          className="flex-grow focus:outline-none border-0 !mr-[3px]"
           onChange={handleChange}
-          style={style}
           required={isRequired}
         >
           <option value="">Month</option>
@@ -112,9 +106,8 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 xs:pr-4 sm:pr-4 md:pr-6"
+          className="flex-grow focus:outline-none border-0 !mr-[3px]"
           onChange={handleChange}
-          style={style}
           required={isRequired}
         >
           <option value="">Year</option>
