@@ -80,7 +80,7 @@ export default function DateOfBirthField({
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 xs:pr-4 sm:pr-4 md:pr-6"
+          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 !mr-[3px] xs:pr-4 sm:pr-4 md:pr-6"
           style={style}
           onChange={handleChange}
           required={isRequired}
@@ -96,7 +96,7 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 xs:pr-4 sm:pr-4 md:pr-6"
+          className="flex-grow focus:outline-none border-0 !pl-2 !pr-4 !mr-[3px] xs:pr-4 sm:pr-4 md:pr-6"
           onChange={handleChange}
           style={style}
           required={isRequired}
