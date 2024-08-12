@@ -69,6 +69,14 @@ export default function DateOfBirthField({
   const isValidDate =
     year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
+  const styleReq = {
+    backgroundPosition: 'top 10px right 3px, center right 10px',
+  }
+
+  const style = {
+    backgroundPosition: 'right 0.5rem center',
+  }
+
   return (
     <span className="flex flex-col gap-2">
       <span className="flex w-full border border-gray-300 rounded-lg bg-white">
@@ -79,6 +87,7 @@ export default function DateOfBirthField({
           className="flex-grow focus:outline-none border-0 !mr-[3px]"
           onChange={handleChange}
           required={isRequired}
+          style={isRequired ? styleReq : style}
         >
           <option value="">Day</option>
           {dayOptions.map(option => (
@@ -94,6 +103,7 @@ export default function DateOfBirthField({
           className="flex-grow focus:outline-none border-0 !mr-[3px]"
           onChange={handleChange}
           required={isRequired}
+          style={isRequired ? styleReq : style}
         >
           <option value="">Month</option>
           {monthOptions.map(option => (
@@ -109,6 +119,7 @@ export default function DateOfBirthField({
           className="flex-grow focus:outline-none border-0 !mr-[3px]"
           onChange={handleChange}
           required={isRequired}
+          style={isRequired ? styleReq : style}
         >
           <option value="">Year</option>
           {yearOptions.map(option => (
