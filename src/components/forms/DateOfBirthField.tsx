@@ -75,6 +75,7 @@ export default function DateOfBirthField({
 
   const style = {
     backgroundPosition: 'right 0.5rem center',
+    paddingRight: '1.5rem'
   }
 
   return (
@@ -100,7 +101,7 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0 !mr-[3px] xl:pl-2"
+          className="flex-grow focus:outline-none border-0 !mr-[3px] lg:pl-4 xl:pl-2"
           onChange={handleChange}
           required={isRequired}
           style={isRequired ? styleReq : style}
@@ -116,7 +117,7 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0 !mr-[3px] xl:pl-2"
+          className="flex-grow focus:outline-none border-0 !mr-[3px] lg:pl-4 xl:pl-2"
           onChange={handleChange}
           required={isRequired}
           style={isRequired ? styleReq : style}
