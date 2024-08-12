@@ -70,7 +70,7 @@ export default function DateOfBirthField({
     year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
   const style = {
-    backgroundPosition: 'top 8px right 5px, center right 14px',
+    backgroundPosition: 'top 10px right 3px, center right 10px',
   };
 
   return (
@@ -80,7 +80,7 @@ export default function DateOfBirthField({
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0 pl-2 lg:pr-10 md:pr-6 sm:pr-4"
+          className="flex-grow focus:outline-none border-0 pl-2 !md:pr-6 !sm:pr-4"
           style={style}
           onChange={handleChange}
           required={isRequired}
@@ -96,7 +96,7 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0 pl-2 lg:pr-10 md:pr-6 sm:pr-4"
+          className="flex-grow focus:outline-none border-0 pl-2 !md:pr-6 !sm:pr-4"
           onChange={handleChange}
           style={style}
           required={isRequired}
@@ -112,7 +112,7 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0 pl-2 lg:pr-10 md:pr-6 sm:pr-4"
+          className="flex-grow focus:outline-none border-0 pl-2 !md:pr-6 !sm:pr-44"
           onChange={handleChange}
           style={style}
           required={isRequired}
