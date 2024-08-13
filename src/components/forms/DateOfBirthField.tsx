@@ -69,16 +69,26 @@ export default function DateOfBirthField({
   const isValidDate =
     year && month && day && !isNaN(Date.parse(`${year}-${month}-${day}`));
 
+  const styleReq = {
+    backgroundPosition: 'top 10px right 3px, center right 10px',
+  }
+
+  const style = {
+    backgroundPosition: 'right 0.5rem center',
+    paddingRight: '1.5rem'
+  }
+
   return (
     <span className="flex flex-col gap-2">
-      <span className="flex space-x-4 border border-gray-300 rounded-lg bg-white">
+      <span className="flex w-full border border-gray-300 rounded-lg bg-white">
         <select
           name={`${name}_day`}
           id={`${id}_day`}
           value={day}
-          className="flex-grow focus:outline-none border-0"
+          className="flex-grow focus:outline-none border-0 !mr-[3px] lg:pl-4 xl:pl-2"
           onChange={handleChange}
           required={isRequired}
+          style={isRequired ? styleReq : style}
         >
           <option value="">Day</option>
           {dayOptions.map(option => (
@@ -91,9 +101,10 @@ export default function DateOfBirthField({
           name={`${name}_month`}
           id={`${id}_month`}
           value={month}
-          className="flex-grow focus:outline-none border-0"
+          className="flex-grow focus:outline-none border-0 !mr-[3px] lg:pl-4 xl:pl-2"
           onChange={handleChange}
           required={isRequired}
+          style={isRequired ? styleReq : style}
         >
           <option value="">Month</option>
           {monthOptions.map(option => (
@@ -106,9 +117,10 @@ export default function DateOfBirthField({
           name={`${name}_year`}
           id={`${id}_year`}
           value={year}
-          className="flex-grow focus:outline-none border-0"
+          className="flex-grow focus:outline-none border-0 !mr-[3px] lg:pl-4 xl:pl-2"
           onChange={handleChange}
           required={isRequired}
+          style={isRequired ? styleReq : style}
         >
           <option value="">Year</option>
           {yearOptions.map(option => (
