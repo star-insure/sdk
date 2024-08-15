@@ -32,6 +32,16 @@ export type TPageHeaderAction = {
     type?: 'button' | 'submit';
     hidden?: boolean;
     shortcutKey?: string;
+    actions?: TPageHeaderInnerAction[];
+};
+
+export type TPageHeaderInnerAction = {
+    title: string;
+    as?: 'button' | 'a' | 'Link';
+    href?: string;
+    target?: '_self' | '_blank';
+    onClick?: Function;
+    hidden?: boolean;
 };
 
 export type Environment = 'production' | 'staging' | 'testing' | 'local';
