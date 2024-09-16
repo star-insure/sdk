@@ -11,7 +11,7 @@ export interface FilterOption {
     label: string;
     name: string;
     options?: FilterValue[];
-    type?: 'options' | 'date' | 'greaterThan' | 'scope' | 'select' | 'datalist' | 'column' | 'text';
+    type?: 'options' | 'date' | 'greaterThan' | 'scope' | 'select' | 'datalist' | 'column' | 'text' | 'range';
 }
 
 export interface FilterValue {
