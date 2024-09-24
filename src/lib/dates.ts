@@ -109,3 +109,23 @@ export function formatDateTime(dateTime: Date|string|null|undefined, overrideFor
 
     return '';
 }
+
+/**
+ * Attempts to create a date object from a date string
+ */
+export function createDate(dateString: Date | string | null | undefined): Date | null {
+    // Re-use our logic from formatDateTime
+    const formattedDateTime = formatDateTime(dateString);
+
+    if (!formattedDateTime) {
+        return null;
+    }
+
+    // Attempt to parse the formatted date to a date object
+    try {
+        return parse(formattedDateTime, 'dd/MM/yyyy HH:mm', new Date());
+    } catch (error) {
+        console.error(`Error parsing date: ${dateString?.toString()}`);
+        return null;
+    }
+}
