@@ -155,21 +155,21 @@ export default function PageHeader({
     return (
         <section className={cn('col-span-full flex items-center gap-2 max-w-full rounded-lg bg-white p-2 shadow', className)}>
             {back && (
-                <BackButton back={back} className="bg-gray-100 h-[60px] w-[60px] rounded" />
+                <BackButton back={back} className="bg-back-button-background h-[60px] w-[60px] rounded" />
             )}
 
-            <div className={cn('w-full grid grid-cols-[auto_1fr_auto_auto] h-[60px] rounded bg-gray-100 p-3 gap-4', innerClassName)}>
+            <div className={cn('w-full grid grid-cols-[auto_1fr_auto_auto] h-[60px] rounded bg-page-header-background p-3 gap-4', innerClassName)}>
                 <button
                     type="button"
                     disabled={!search}
                     onClick={() => setSearchActive(true)}
-                    className={cn('mr-auto flex items-center gap-4 transition-colors pr-6 pl-1 disabled:opacity-100', {
+                    className={cn('mr-auto flex items-center gap-4 transition-colors pr-6 pl-1 disabled:opacity-100 text-page-header-text', {
                         'hover:text-primary': search && !isSearchActive,
                     }
                 )}>
                     {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} focusSearchShortcut={focusSearchShortcut} />}
 
-                    {!isSearchActive && <h1 className="text-base font-black">{title}</h1>}
+                    {!isSearchActive && <h1 className="text-base text-page-header-text font-black">{title}</h1>}
                 </button>
 
                 <div className="flex items-center ml-auto gap-2 h-full min-w-0 max-w-full">
@@ -189,7 +189,7 @@ export default function PageHeader({
                 </div>
 
                 {filteredActions.length > 0 && (
-                    <div className="flex items-center gap-3 bg-gray-100">
+                    <div className="flex items-center gap-3 bg-page-header-background">
                         {filterOptions.length > 0 && <div className="w-[1px] h-full bg-gray-300" />}
                         <nav className="flex items-center gap-2">
                             {filteredActions.map((action) => (
