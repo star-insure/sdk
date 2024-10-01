@@ -164,7 +164,7 @@ export default function PageHeader({
                     disabled={!search}
                     onClick={() => setSearchActive(true)}
                     className={cn('mr-auto flex items-center gap-4 transition-colors pr-6 pl-1 disabled:opacity-100', {
-                        'hover:text-teal': search && !isSearchActive,
+                        'hover:text-primary': search && !isSearchActive,
                     }
                 )}>
                     {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} focusSearchShortcut={focusSearchShortcut} />}

@@ -228,7 +228,7 @@ export default function RegistrationSearchField({
           type="button"
           onClick={handleSearch}
           disabled={status === 'processing'}
-          className={cn(searchBtnClassName, "bg-teal px-4 py-3 rounded-md transition-all")}
+          className={cn(searchBtnClassName, "bg-primary px-4 py-3 rounded-md transition-all")}
         >
           <span className="sr-only">Search</span>
           <svg
