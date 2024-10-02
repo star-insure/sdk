@@ -2,6 +2,7 @@ export type UserContext =
   | 'administrator'
   | 'staff'
   | 'broker'
+  | 'dealer'
   | 'agent'
   | 'security'
   | 'customer';
