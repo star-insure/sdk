@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #6fc7b6;
+    --primary-300-color: #b8e1d9;
+    --primary-100-color: #f2f9f8;
+    --primary-700-color: #48aa97;
+
+    --secondary-color: #2b3844;
+
+    --page-background-color: #f9fafb;
+    --footer-background-color: #e5e7eb;
+
+    --page-header-background-color: #f3f4f6;
+    --page-header-text-color: rgb(102, 102, 102);
+    --back-button-background-color: #f3f4f6;
+    --back-button-text-color: rgb(102, 102, 102);
+
+    --section-title-color: #6b7280;
+    --sub-section-title-color: rgb(102, 102, 102);
+    --section-separator-color: rgb(107, 114, 128);
+
+    --section-header-background-color: #f3f4f6;
+    --section-header-text-color: rgb(102, 102, 102);
+
+    --card-subtitle-color: #2B3844;
+    --card-alternative-background-color: rgba(102, 102, 102, 0.07);
+
+    --table-header-background-color: #8a8c8e;
+    --table-header-text-color: #FFFFFF;
+    --table-row-alternative-background-color: #f9fafb;
+}

@@ -8,7 +8,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableSe
 
 export default function TableHead({ children, className, ...props }: Props) {
     return (
-        <thead {...props} className={cn(className, 'px-3 py-4 text-sm text-white bg-gray-600')}>
+        <thead {...props} className={cn(className, 'px-3 py-4 text-sm text-white bg-table-header-background')}>
             {children}
         </thead>
     )

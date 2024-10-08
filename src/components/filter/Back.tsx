@@ -30,7 +30,7 @@ export function BackButton({ back, className }: { back?: string | boolean; class
     }, [breadcrumbs]);
 
     return (
-        <Link href={backUrl || '/'} className={cn(className, 'flex items-center justify-center hover:text-teal transition-all')}>
+        <Link href={backUrl || '/'} className={cn(className, 'flex items-center justify-center text-back-button-text hover:text-primary transition-all')}>
             <HiArrowLeft className="h-5 w-5 stroke-[1.25]" />
         </Link>
     );
