@@ -16,9 +16,9 @@ module.exports = {
         extend: {
             colors: {
                 primary: 'var(--primary-color)',
-                'primary-light': 'var(--primary-light-color)',
-                'primary-xlight': 'var(--primary-xlight-color)',
-                'primary-dark': 'var(--primary-dark-color)',
+                'primary-300': 'var(--primary-300-color)',
+                'primary-100': 'var(--primary-100-color)',
+                'primary-700': 'var(--primary-700-color)',
                 secondary: 'var(--secondary-color)',
                 'page-background': 'var(--page-background-color)',
                 'footer-background': 'var(--footer-background-color)',
