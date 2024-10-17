@@ -1,30 +1,21 @@
 :root {
-    --primary-color: #6fc7b6;
-    --primary-300-color: #b8e1d9;
-    --primary-100-color: #f2f9f8;
-    --primary-700-color: #48aa97;
+    --primary-color: 111 199 182;
+    --primary-300-color: 184 225 217;
+    --primary-100-color: 242 249 248;
+    --primary-700-color: 72 170 151;
 
-    --secondary-color: #2b3844;
+    --secondary-color: 43 56 68;
+    --secondary-100-color: 243 244 246;
 
-    --page-background-color: #f9fafb;
-    --footer-background-color: #e5e7eb;
+    --on-secondary-light-color: 102 102 102;
 
-    --page-header-background-color: #f3f4f6;
-    --page-header-text-color: rgb(102, 102, 102);
-    --back-button-background-color: #f3f4f6;
-    --back-button-text-color: rgb(102, 102, 102);
+    --page-background-color: 249 250 251;
+    --footer-background-color: 229 231 235;
 
-    --section-title-color: #6b7280;
-    --sub-section-title-color: rgb(102, 102, 102);
-    --section-separator-color: rgb(107, 114, 128);
+    --card-subtitle-color: 43 56 68;
+    --card-alternative-background-color: 102 102 102 0.07;
 
-    --section-header-background-color: #f3f4f6;
-    --section-header-text-color: rgb(102, 102, 102);
-
-    --card-subtitle-color: #2B3844;
-    --card-alternative-background-color: rgba(102, 102, 102, 0.07);
-
-    --table-header-background-color: #8a8c8e;
-    --table-header-text-color: #FFFFFF;
-    --table-row-alternative-background-color: #f9fafb;
+    --table-header-background-color: 138 140 142;
+    --table-header-text-color: 255 255 255;
+    --table-row-alternative-background-color: 249 250 251;
 }
