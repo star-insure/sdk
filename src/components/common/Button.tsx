@@ -31,7 +31,7 @@ export default function Button({
     : 'font-black inline-flex items-center gap-3 justify-center text-white text-center px-5 py-2 rounded-md min-w-[120px] transition-all hover:brightness-110';
 
   const statusClass =
-    (status === 'primary' && 'bg-primary') ||
+    (status === 'primary' && 'bg-accent') ||
     (status === 'danger' && 'bg-red-500') ||
     (status === 'warning' && 'bg-yellow-400') ||
     (status === 'info' && 'bg-blue-400') ||

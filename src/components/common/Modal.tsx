@@ -38,7 +38,7 @@ export default function Modal({ children, isActive = false, onClose, title, widt
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
                         <div className={`${className} w-full align-start inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-7xl sm:p-6 ${width}`}>
-                            <div className={`flex gap-4 mb-4 text-secondary ${title ? 'border-b-2 border-secondary pb-4' : ''}`}>
+                            <div className={`flex gap-4 mb-4 text-primary ${title ? 'border-b-2 border-primary pb-4' : ''}`}>
                                 {title && <h3 className="font-black text-lg">{title}</h3>}
                                 <button type="button" onClick={onClose} className="ml-auto transition-all hover:opacity-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

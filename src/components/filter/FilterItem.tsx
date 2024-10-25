@@ -198,9 +198,9 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
             <div
                 onClick={() => handleClick()}
                 className={cn(
-                    'flex rounded-2xl border hover:cursor-pointer hover:border-primary bg-gray-600 px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-primary transition-colors',
+                    'flex rounded-2xl border hover:cursor-pointer hover:border-accent bg-gray-600 px-2 py-1 items-center justify-between shrink-0 gap-2 text-xs text-white hover:bg-accent transition-colors',
                     {
-                        '!bg-primary border-primary': hasFilters,
+                        '!bg-accent border-accent': hasFilters,
                     }
             )}>
                 <p className="whitespace-nowrap">{filter.label}</p>

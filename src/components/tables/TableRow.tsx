@@ -8,7 +8,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRo
 }
 
 export default function TableRow({ children, className = '', onClick = () => {}, ...props }: Props) {
-    const bgClass = className.includes('bg') ? '' : 'bg-white even:bg-table-row-alternative-background'
+    const bgClass = className.includes('bg') ? '' : 'bg-white even:bg-gray-50'
 
     return (
         <tr {...props} className={cn(className, bgClass, 'hover:bg-gray-100')} onClick={(e) => onClick(e)}>
