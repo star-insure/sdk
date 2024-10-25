@@ -8,10 +8,10 @@ export default function ToastItem({ _id = '', message, status = 'default' }: Toa
 
     const defaultClasses = 'w-full min-w-[250px] p-4 shadow flex justify-between items-center font-black rounded-md not:';
 
-    const statusClasses = status === 'success' && 'bg-primary text-white'
+    const statusClasses = status === 'success' && 'bg-accent text-white'
         || status === 'error' && 'bg-red-500 text-white'
         || status === 'warning' && 'bg-yellow-400 text-white'
-        || 'bg-white text-secondary';
+        || 'bg-white text-primary';
 
     const classes = `${defaultClasses} ${statusClasses}`;
 

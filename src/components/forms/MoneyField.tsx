@@ -28,7 +28,7 @@ export default function MoneyField({ value = 0, onChange, name = 'value', id = '
     const displayValue = formatMoney(value, 0);
 
     return (
-        <div className={`${className} flex items-center gap-2 pl-4 rounded-md border border-gray-300 transition-all focus-within:border-primary focus-within:outline-none focus-within:ring focus-within:ring-primary focus-within:ring-opacity-50`}>
+        <div className={`${className} flex items-center gap-2 pl-4 rounded-md border border-gray-300 transition-all focus-within:border-accent focus-within:outline-none focus-within:ring focus-within:ring-accent focus-within:ring-opacity-50`}>
             <span className="font-bold pr-2">$</span>
             <input
                 type="text"
