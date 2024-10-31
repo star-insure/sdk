@@ -37,6 +37,7 @@ module.exports = {
                 },
 
                 light: 'rgb(var(--light-color))',
+                neutral: 'rgb(var(--neutral-color))',
                 dark: 'rgb(var(--dark-color))',
                 black: 'rgb(var(--black-color))',
                 white: 'rgb(var(--white-color))',
