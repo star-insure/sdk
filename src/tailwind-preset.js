@@ -80,6 +80,15 @@ module.exports = {
                 danger: 'rgb(var(--danger-color))',
                 warning: 'rgb(var(--warning-color))',
                 info: 'rgb(var(--info-color))',
+
+                // Product specific colours (these should never change with the theme)
+                enthusiast: 'hsl(22, 26%, 34%)',
+                everyday: 'hsl(225, 2%, 44%)',
+                starplus: '#df5e1f',
+                prestige: 'hsl(41, 27%, 43%)',
+                motorcycle: 'hsl(40, 97%, 54%)',
+                campercare: 'hsl(358, 78%, 51%)',
+                auctions: '#358CCB',
             },
             transitionDuration: {
                 DEFAULT: '300ms',
