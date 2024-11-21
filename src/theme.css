@@ -52,3 +52,8 @@
     --warning-color: 250 204 21;
     --info-color: 96 165 250;
 }
+
+.no-focus-shadow:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

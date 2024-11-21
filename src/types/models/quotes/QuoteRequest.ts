@@ -102,6 +102,8 @@ export interface QuoteRequest {
     agent_firm?: QuoteRequestUserGroup;
     broker?: QuoteRequestUser;
     broker_firm?: QuoteRequestUserGroup;
+    dealer?: QuoteRequestUser;
+    dealer_firm?: QuoteRequestUserGroup;
     club?: Club;
     lead?: Lead;
     vehicles?: QuoteRequestVehicle[];
