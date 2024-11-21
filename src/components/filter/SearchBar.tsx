@@ -102,7 +102,7 @@ export default function SearchBar({ search, active, onActive, placeholder, focus
                         id="search"
                         value={query}
                         onChange={(e) => setQuery(e.currentTarget.value || '')}
-                        className="!focus:border-0 !border-0 !bg-transparent !shadow-none !ring-opacity-0 !transition-none placeholder:text-gray-400 !py-1.5 text-sm"
+                        className="no-focus-shadow !focus:border-0 !border-0 !bg-transparent !shadow-none !ring-opacity-0 !transition-none placeholder:text-gray-400 !py-1.5 text-sm"
                         autoFocus
                         placeholder={placeholder}
                     />
