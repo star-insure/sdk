@@ -32,6 +32,8 @@ export type TPageHeaderAction = {
     type?: 'button' | 'submit';
     hidden?: boolean;
     shortcutKey?: string;
+    backgroundColor?: string;
+    textColor?: string;
     actions?: TPageHeaderInnerAction[];
 };
 
