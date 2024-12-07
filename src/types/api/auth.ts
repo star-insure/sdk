@@ -37,4 +37,5 @@ export interface AuthContext {
   permissions: string[];
   is_app?: boolean;
   can: (permission: string) => boolean;
+  should_2fa?: boolean;
 }
