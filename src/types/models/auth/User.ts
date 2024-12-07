@@ -1,4 +1,5 @@
 import { Group } from '.';
+import { TwoFactorAuthMethod } from '../../api';
 
 export interface User {
   id: number;
@@ -13,4 +14,5 @@ export interface User {
   groups?: Group[];
   permissions?: string[];
   phone_extension?: number;
+  two_factor_method?: TwoFactorAuthMethod;
 }

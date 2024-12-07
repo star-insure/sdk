@@ -43,4 +43,4 @@ export interface AuthContext {
     should_two_factor_auth: boolean;
 }
 
-type TwoFactorAuthMethod = 'email' | 'sms';
+export type TwoFactorAuthMethod = 'email' | 'sms';
