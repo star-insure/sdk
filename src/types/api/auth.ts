@@ -15,6 +15,7 @@ type AuthUser = {
     umbrella_filter?: string;
     oracle_user_id?: string;
     groups: AuthGroup[];
+    mobile?: string;
     phone_extension?: number;
     two_factor_expires_at?: string;
     two_factor_method?: TwoFactorAuthMethod;
