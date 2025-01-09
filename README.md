@@ -16,6 +16,30 @@ npm start
 npm run test
 ```
 
+## Making changes to this package locally
+The easiest way to run this package locally without having to formally release a new version is `npm link`.
+
+From this package root:
+```
+npm link
+```
+
+From the project you're making changes in (e.g. star-insure/portal):
+```
+npm link @star-insure/sdk
+```
+
+From the project you're making changes in (e.g. star-insure/portal):
+```
+npm uninstall --no-save @star-insure/sdk && npm install
+```
+
+[Optional] You can remove the global symlink created for this package by from this package root.
+However you don't need to do this, as you'll likely be doing this again in future.
+```
+npm uninstall
+```
+
 ## Publishing to NPM
 Suggest that you use [np](https://github.com/sindresorhus/np) for publishing.
 
