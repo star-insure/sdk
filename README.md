@@ -17,8 +17,13 @@ npm run test
 ```
 
 ## Making changes to this package locally
-The easiest way to run this package locally without having to formally release a new version is `npm link`.
+### Updating project dependency
+Update the package.json file in your consuming project to reference the relative path to this package. e.g.
+```
+"@star-insure/sdk": "file:../starinsure-sdk",
+```
 
+### npm link [TODO: Fix this somehow. It doesn't actually work, it breaks Inertia]
 From this package root:
 ```
 npm link

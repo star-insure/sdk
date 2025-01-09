@@ -1,12 +1,4 @@
-/*
-# Add files you need to exclusions
-!LICENSE
-!README.md
-!package.json
-!package-lock.json
-!tsconfig.json
-!yarn.lock
+node_modules
+dist
 *.DS_Store
-
-!src/
-!test/
+*.tgz

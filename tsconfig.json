@@ -9,11 +9,12 @@
     "compilerOptions": {
         // "baseUrl": "./src",
         // "outDir": "./",
-        "module": "esnext",
+        "module": "ES2020",
         "lib": [
             "dom",
             "esnext"
         ],
+        "types": ["vitest/globals"],
         "importHelpers": true,
         // output .d.ts declaration files for consumers
         "declaration": true,
