@@ -8,31 +8,29 @@ export default defineConfig({
         react(),
         dts({
             insertTypesEntry: true,
-            skipDiagnostics: true,
             include: ['src'],
-            rollupTypes: true,
+            rollupTypes: false,
         }),
     ],
     build: {
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
-            formats: ['es'],
+            formats: ['es', 'cjs'],
             fileName: (format) => `sdk.${format}.js`,
         },
         rollupOptions: {
             external: [
-                // Peer dependencies
                 'react',
                 'react-dom',
                 '@inertiajs/react',
                 '@inertiajs/core',
-                // Utilities
                 'lodash-es',
                 'react-tooltip',
                 'react-select',
                 '@headlessui/react',
             ],
             output: {
+                preserveModules: true,
                 exports: 'named',
             },
         },
