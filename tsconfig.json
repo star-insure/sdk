@@ -10,6 +10,7 @@
         // "baseUrl": "./src",
         // "outDir": "./",
         "module": "ES2020",
+        "target": "ESNext",
         "lib": [
             "dom",
             "esnext"

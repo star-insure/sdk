@@ -20,24 +20,38 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
         if (typeof window !== 'undefined') {
             const search = new URLSearchParams(window.location.search);
 
+            // Strip all index keys from the square brackets
+            const filtersFromUrl = [];
+            for (const [key, value] of search.entries()) {
+                const updatedKey = key.replaceAll(/\[\d+\]/g, '[]');
+                filtersFromUrl.push([updatedKey, value]);
+            }
+
+            // Conditional logic dependent on the filter type
             if (filter.type === 'date') {
-                const fromDate = search.get(`${filter.name}[from]`);
-                const toDate = search.get(`${filter.name}[to]`);
+                const fromDate = filtersFromUrl.find(([key]) => key === `${filter.name}[from]`)?.[1];
+                const toDate = filtersFromUrl.find(([key]) => key === `${filter.name}[to]`)?.[1];
                 if (fromDate && toDate) {
                     setSelected([fromDate, toDate]);
                 }
             } else if (filter.type === 'greaterThan') {
-                const selectedFromUrl = search.getAll(`${filter.name}-GTE`);
+                const selectedFromUrl = filtersFromUrl
+                    .filter(([key]) => key === `${filter.name}-GTE`)
+                    .map(([_, value]) => value);
                 if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                 }
             } else if (filter.type === 'scope') {
-                const selectedFromUrl = search.getAll(`scope${filter.name}`);
+                const selectedFromUrl = filtersFromUrl
+                    .filter(([key]) => key === `scope${filter.name}`)
+                    .map(([_, value]) => value);
                 if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                 }
             } else if (filter.type === 'select') {
-                const selectedFromUrl = search.getAll(`${filter.name}[]`);
+                const selectedFromUrl = filtersFromUrl
+                    .filter(([key]) => key === `${filter.name}[]`)
+                    .map(([_, value]) => value);
                 if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                     const selectedOptions = filter.options && filter.options.filter(item =>
@@ -49,7 +63,9 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                 }
             } else {
                 // Default case for 'options' type and others
-                const selectedFromUrl = search.getAll(`${filter.name}[]`);
+                const selectedFromUrl = filtersFromUrl
+                    .filter(([key]) => key === `${filter.name}[]`)
+                    .map(([_, value]) => value);
                 if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                 }
