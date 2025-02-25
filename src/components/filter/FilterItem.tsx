@@ -28,29 +28,34 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                 }
             } else if (filter.type === 'greaterThan') {
                 const selectedFromUrl = search.getAll(`${filter.name}-GTE`);
-                if (selectedFromUrl) {
+                if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                 }
             } else if (filter.type === 'scope') {
                 const selectedFromUrl = search.getAll(`scope${filter.name}`);
-                if (selectedFromUrl) {
+                if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                 }
             } else if (filter.type === 'select') {
                 const selectedFromUrl = search.getAll(`${filter.name}[]`);
-                if (selectedFromUrl) {
+                if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
-                    const selectedOptions = filter.options && filter.options.filter(item => selectedFromUrl.includes(item.value.toString()));
-                    selectedOptions && setSelectedOptions(selectedOptions);
+                    const selectedOptions = filter.options && filter.options.filter(item =>
+                        selectedFromUrl.includes(item.value.toString())
+                    );
+                    if (selectedOptions && selectedOptions.length > 0) {
+                        setSelectedOptions(selectedOptions);
+                    }
                 }
             } else {
+                // Default case for 'options' type and others
                 const selectedFromUrl = search.getAll(`${filter.name}[]`);
-                if (selectedFromUrl) {
+                if (selectedFromUrl.length > 0) {
                     setSelected(selectedFromUrl);
                 }
             }
         }
-    }, []);
+    }, [filter]);
 
     function handleInput(e: React.SyntheticEvent<HTMLInputElement>) {
         const { value, checked } = e.currentTarget;
@@ -180,6 +185,10 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
         } else {
             search.delete(`${filter.name}[]`);
         }
+
+        // Reset the local state
+        setSelected([]);
+        setSelectedOptions([]);
 
         // Fetch new data
         router.get(`${window.location.pathname}?${search.toString()}`);
