@@ -114,7 +114,7 @@ export default function PageHeader({
     }, [overScroll])
 
     function handleClear() {
-        router.get(`${window.location.pathname}`);
+        window.location.href = window.location.pathname;
     }
 
     const [hasScroll, setHasScroll] = React.useState<boolean>(false);
@@ -159,18 +159,18 @@ export default function PageHeader({
             )}
 
             <div className={cn('w-full grid grid-cols-[auto_1fr_auto_auto] h-[60px] rounded bg-primary-100 p-3 gap-4', innerClassName)}>
-                <button
-                    type="button"
-                    disabled={!search}
+                <div
                     onClick={() => setSearchActive(true)}
                     className={cn('mr-auto flex items-center gap-4 transition-colors pr-6 pl-1 disabled:opacity-100 text-primary', {
                         'hover:text-accent': search && !isSearchActive,
+                        'pointer-events-none': !search,
+                        'hover:cursor-pointer': search,
                     }
                 )}>
                     {search && <SearchBar search={search} active={isSearchActive} onActive={setSearchActive} placeholder={`Search ${title}...`} focusSearchShortcut={focusSearchShortcut} />}
 
                     {!isSearchActive && <h1 className="text-base text-primary font-black">{title}</h1>}
-                </button>
+                </div>
 
                 <div className="flex items-center ml-auto gap-2 h-full min-w-0 max-w-full">
                     {filterOptions.length > 0 && (
