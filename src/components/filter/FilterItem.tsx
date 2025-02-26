@@ -170,8 +170,11 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
                 search.set(`scope${filter.name}`, selected[0]);
             }
         } else {
-            // Clear this filter first
-            search.delete(`${filter.name}[]`);
+            // Funny way to clear all selected options by index
+            Array.from({length: filter.options?.length || 50}).forEach((_v, i) => {
+                // Clear this filter first
+                search.delete(`${filter.name}[${i}]`);
+            })
 
             // Apply the filters to the query string
             selected.forEach((selectedValue) => {
@@ -199,7 +202,9 @@ export function FilterItem({ filter }: { filter: FilterOption, path?: string }) 
         } else if (filter.type === 'scope') {
             search.delete(`scope${filter.name}`);
         } else {
-            search.delete(`${filter.name}[]`);
+            selected.forEach((_v, i) => {
+                search.delete(`${filter.name}[${i}]`);
+            });
         }
 
         // Reset the local state
