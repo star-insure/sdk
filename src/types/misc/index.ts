@@ -34,6 +34,8 @@ export type TPageHeaderAction = {
     shortcutKey?: string;
     backgroundColor?: string;
     textColor?: string;
+    hoverBackgroundColor?: string;
+    hoverTextColor?: string;
     actions?: TPageHeaderInnerAction[];
 };
 
