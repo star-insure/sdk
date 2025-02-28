@@ -3,15 +3,16 @@ import { Tooltip } from 'react-tooltip';
 import { Link, router } from "@inertiajs/react";
 import { TPageHeaderAction } from "../../types";
 import {useClickOutside} from "../../lib";
+import { default as cn } from 'classnames';
 
 export default function Action({ title, href, as = 'Link', target = '_self', type, onClick = () => {}, shortcutKey, backgroundColor, hoverBackgroundColor, textColor, hoverTextColor, actions }: TPageHeaderAction) {
-    const backgroundColorClass = backgroundColor ? `bg-${backgroundColor}` : 'bg-white';
-    const textColorClass = textColor ? `text-${textColor}` : '';
-    const hoverBackgroundColorClass = hoverBackgroundColor ? `hover:bg-${hoverBackgroundColor}` : 'hover:bg-gray-100';
-    const hoverTextColorClass = hoverTextColor ? `hover:text-${hoverTextColor}` : '';
-    const colorClass = (`${backgroundColorClass} ${textColorClass} ${hoverBackgroundColorClass} ${hoverTextColorClass}`).trim();
-    const className =
-        colorClass + ' rounded-full font-bold px-4 py-1.5 text-sm whitespace-nowrap hover:border-gray-400 transition-colors border border-gray-300';
+    const className = cn('rounded-full font-bold px-4 py-1.5 text-sm whitespace-nowrap hover:border-gray-400 transition-colors border border-gray-300', {
+        'bg-white': !backgroundColor,
+        [`bg-${backgroundColor}`]: !!backgroundColor,
+        [`text-${textColor}`]: !!textColor,
+        'hover:bg-gray-100': !hoverBackgroundColor,
+        [`hover:bg-${hoverBackgroundColor}`]: !!hoverBackgroundColor,
+    });
 
     const tooltipId = `action-${title}`;
     const tooltipContent = shortcutKey ? `Ctrl + ${shortcutKey}` : undefined;
