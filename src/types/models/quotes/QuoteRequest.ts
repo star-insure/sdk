@@ -86,6 +86,8 @@ export interface QuoteRequest {
     agent_firm_id?: QuoteRequestUserGroup['id'];
     broker_firm_id?: QuoteRequestUserGroup['id'];
     broker_id?: QuoteRequestUser['id'];
+    dealer_firm_id?: QuoteRequestUserGroup['id'];
+    dealer_id?: QuoteRequestUser['id'];
     club_id?: Club['id'];
     lead_id?: Lead['id'];
     blacklist_entry_id?: BlacklistEntry['id'];
