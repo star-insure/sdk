@@ -34,7 +34,7 @@ From the project you're making changes in (e.g. star-insure/portal):
 npm link @star-insure/sdk
 ```
 
-From the project you're making changes in (e.g. star-insure/portal):
+To unlink, run this from the project you're making changes in (e.g. star-insure/portal):
 ```
 npm uninstall --no-save @star-insure/sdk && npm install
 ```
