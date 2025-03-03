@@ -5,7 +5,7 @@ import { TPageHeaderAction } from "../../types";
 import {useClickOutside} from "../../lib";
 import { default as cn } from 'classnames';
 
-export default function Action({ title, href, as = 'Link', target = '_self', type, onClick = () => {}, shortcutKey, backgroundColor, hoverBackgroundColor, textColor, hoverTextColor, actions }: TPageHeaderAction) {
+export default function Action({ title, href, as = 'Link', target = '_self', type, onClick = () => {}, shortcutKey, backgroundColor, hoverBackgroundColor, textColor, actions }: TPageHeaderAction) {
     const className = cn('rounded-full font-bold px-4 py-1.5 text-sm whitespace-nowrap hover:border-gray-400 transition-colors border border-gray-300', {
         'bg-white': !backgroundColor,
         [`bg-${backgroundColor}`]: !!backgroundColor,

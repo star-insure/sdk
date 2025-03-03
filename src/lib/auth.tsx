@@ -12,7 +12,7 @@ interface AppPage extends Page {
 }
 
 export function useAuth(): AuthContext {
-    const { props } = usePage() as AppPage;
+    const { props } = usePage() as unknown as AppPage;
 
     /**
      * Check if the user has permission to perform the given ability.

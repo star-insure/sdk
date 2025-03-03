@@ -6,7 +6,6 @@ import SearchBar from './SearchBar';
 import Action from './Action';
 import { FilterItem } from './FilterItem';
 import { HiChevronLeft, HiChevronRight, HiXMark } from 'react-icons/hi2';
-import { router } from '@inertiajs/core';
 
 interface Props {
     title: string;
