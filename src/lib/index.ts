@@ -8,6 +8,7 @@ export * from './localStorage';
 export * from './toast';
 export * from './quoteRequestForm';
 export * from './quoteRequestOptions';
+export * from './quotePremiumRates';
 export * from './addressFinder';
 export * from './calculateAge';
 export * from './calculatePricing';
