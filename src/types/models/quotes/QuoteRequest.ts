@@ -51,6 +51,7 @@ export interface QuoteRequest {
     email?: string;
     licence?: string;
     licence_other?: string;
+    insured_name?: string;
     has_automatch?: boolean;
     automatch_by?: QuoteRequestAutomatch;
     automatch_registrations?: string;

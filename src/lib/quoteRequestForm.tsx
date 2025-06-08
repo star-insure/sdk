@@ -24,6 +24,7 @@ export const initialData: QuoteRequestForm = {
     email: '',
     licence: '',
     licence_other: '',
+    insured_name: '',
     promo_code: '',
     club_membership_number: '',
     length_of_insurance: '',
@@ -40,6 +41,13 @@ export const initialData: QuoteRequestForm = {
         suburb: '',
         city: '',
         post_code: '',
+    },
+    postal_address: {
+        postal_line_1: '',
+        postal_line_2: '',
+        postal_line_3: '',
+        postal_line_4: '',
+        postal_line_5: '',
     },
     declaration: {
         had_incident: undefined,
