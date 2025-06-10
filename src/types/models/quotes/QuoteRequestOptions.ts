@@ -55,6 +55,8 @@ export interface QuoteRequestOptions {
         name: string;
         description: string;
     }[];
+    vehicle_flags: SimpleOption[];
+    town_flags: SimpleOption[];
 }
 
 interface SimpleOption {
