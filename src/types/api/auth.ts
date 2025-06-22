@@ -5,6 +5,7 @@ export type UserContext =
     | 'dealer'
     | 'agent'
     | 'security'
+    | 'auditor'
     | 'customer';
 
 type AuthUser = {
