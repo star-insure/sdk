@@ -31,7 +31,7 @@ type AuthGroup = {
 
 type AuthRole = {
     name: string;
-    context: string;
+    context: UserContext;
 };
 
 export interface AuthContext {
