@@ -26,7 +26,7 @@
         "preview": "vite preview",
         "lint": "eslint src --ext ts,tsx",
         "test": "vitest",
-        "release": "np"
+        "release": "vite build && np"
     },
     "devDependencies": {
         "@babel/plugin-transform-react-jsx": "^7.25.9",
