@@ -15,4 +15,5 @@ export interface User {
   permissions?: string[];
   phone_extension?: number;
   two_factor_method?: TwoFactorAuthMethod;
+  is_deactivated?: boolean;
 }
