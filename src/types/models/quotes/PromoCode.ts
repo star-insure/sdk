@@ -16,4 +16,5 @@ export interface PromoCode {
     group?: Group;
     referrer?: QuoteRequestReferrer;
     category?: QuoteRequestReferrerCategory;
+    vehicle_club_id?: number;
 }

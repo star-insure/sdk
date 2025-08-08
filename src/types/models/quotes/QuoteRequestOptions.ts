@@ -1,4 +1,5 @@
 import { VehicleType } from "../../api";
+import {PromoCode} from "./PromoCode";
 
 export interface QuoteRequestOptions {
     club_options: SimpleOption[];
@@ -57,6 +58,7 @@ export interface QuoteRequestOptions {
     }[];
     vehicle_flags: SimpleOption[];
     town_flags: SimpleOption[];
+    promo_codes?: PromoCode[];
 }
 
 interface SimpleOption {
