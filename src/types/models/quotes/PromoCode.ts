@@ -7,6 +7,7 @@ export interface PromoCode {
     created_at?: string;
     updated_at?: string;
     code?: string;
+    description?: string;
     user_id?: number;
     group_id?: number;
     referrer_id?: number;
