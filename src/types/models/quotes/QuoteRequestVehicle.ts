@@ -1,9 +1,10 @@
-import { Product, VehicleType } from '../../api';
+import {Product, VehicleType, VehicleTypeProduct} from '../../api';
 import { QuoteRequestVehicleDriver } from './QuoteRequestVehicleDriver';
 
 export interface QuoteRequestVehicle {
   id?: number;
   vehicle_type?: VehicleType;
+  vehicle_type_product?: VehicleTypeProduct;
   registration?: string;
   make?: string;
   model?: string;
