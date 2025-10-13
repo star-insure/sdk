@@ -90,7 +90,7 @@ export function isTinyHome(input: string): boolean {
     );
 }
 
-export function getVehicleType(vehicleType: string, model: string, bodyStyle?: string) : VehicleTypeProduct {
+export function getVehicleTypeProduct(vehicleType: string, model: string, bodyStyle?: string) : VehicleTypeProduct {
     var vehicle: VehicleType = sanitiseVehicleType(vehicleType);
 
     if (vehicle === 'motorhome' && bodyStyle) {
