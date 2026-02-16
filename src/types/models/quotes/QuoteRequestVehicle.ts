@@ -17,6 +17,7 @@ export interface QuoteRequestVehicle {
   value?: number;
   storage_location?: string;
   storage_location_other?: string;
+  storage_unit_address?: string;
   is_heavy?: boolean;
   quote_request_id?: string;
   drivers?: QuoteRequestVehicleDriver[];
