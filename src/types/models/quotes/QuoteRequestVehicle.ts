@@ -5,6 +5,7 @@ export interface QuoteRequestVehicle {
   id?: number;
   vehicle_type?: VehicleType;
   vehicle_type_product?: VehicleTypeProduct;
+  bike_rating_category?: string;
   registration?: string;
   make?: string;
   model?: string;
