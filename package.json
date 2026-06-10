@@ -33,13 +33,12 @@
         "@types/lodash-es": "^4.17.6",
         "@types/react": "^18.0.19",
         "@types/react-dom": "^18.0.6",
-        "@types/uuid": "^8.3.4",
         "@vitejs/plugin-react": "^4.3.4",
-        "np": "^9.2.0",
+        "np": "^11.2.1",
         "typescript": "^5.7.3",
         "vite": "^6.0.7",
         "vite-plugin-dts": "^4.4.0",
-        "vitest": "^2.1.8"
+        "vitest": "^4.1.8"
     },
     "dependencies": {
         "@headlessui/react": "^1.6.3",
