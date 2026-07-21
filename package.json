@@ -9,7 +9,7 @@
         "url": "https://github.com/star-insure/sdk"
     },
     "type": "module",
-    "main": "./dist/sdk.cjs.js",
+    "main": "./dist/sdk.es.js",
     "module": "./dist/sdk.es.js",
     "types": "./dist/index.d.ts",
     "browser": "./dist/sdk.es.js",
