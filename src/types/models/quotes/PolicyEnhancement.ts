@@ -11,4 +11,6 @@ export interface PolicyEnhancement {
     sold_at?: string;
     purchase_option_id?: QuoteRequestPurchaseOption['id'];
     key?: string;
+    fsl?: number;
+    has_fsl?: boolean;
 }

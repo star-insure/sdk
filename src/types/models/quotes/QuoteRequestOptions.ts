@@ -40,6 +40,8 @@ export interface QuoteRequestOptions {
         premium: number;
         disable_rounding: boolean;
         auto_select: boolean;
+        fsl?: number;
+        has_fsl?: boolean;
     }[];
     authorised_drivers_options: {
         id: number;
