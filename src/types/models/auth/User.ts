@@ -14,6 +14,7 @@ export interface User {
   groups?: Group[];
   permissions?: string[];
   phone_extension?: number;
+  zoom_user_id?: string | null;
   two_factor_method?: TwoFactorAuthMethod;
   is_deactivated?: boolean;
 }

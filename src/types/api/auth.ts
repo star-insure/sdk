@@ -18,6 +18,7 @@ type AuthUser = {
     groups: AuthGroup[];
     mobile?: string;
     phone_extension?: number;
+    zoom_user_id?: string | null;
     two_factor_expires_at?: string;
     two_factor_method?: TwoFactorAuthMethod;
 };
